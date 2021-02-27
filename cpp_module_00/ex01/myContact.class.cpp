@@ -2,13 +2,8 @@
 #include "myContact.class.hpp"
 
 myContact::myContact() {
-	this->index++;	
-	return;
 }
 
-void    myContact::setIndex() {
-	index++;
-}
 void    myContact::setPostalAddr() {
 	std::cout << "Postal adress: ";
 	std::cin >> postal_addr;
@@ -38,7 +33,7 @@ void    myContact::setEmailAddr() {
 	std::cin >> email_addr;
 }
 void    myContact::setBirthDate() {
-	std::cout << "Birthday date: ";
+	std::cout << "Birthday date (dd/mm/yy): ";
 	std::cin >> birth_date;
 }
 void    myContact::setFavMeal() {
@@ -54,13 +49,10 @@ void    myContact::setDarkestSecret() {
 	std::cin >> darkest_secret;
 }
 
-int	myContact::getIndex() {
-	return index;
-}
-int	myContact::getPostalAddr() {
+std::string	myContact::getPostalAddr() {
 	return postal_addr;
 }
-int	myContact::getPhoneNum() {
+std::string	myContact::getPhoneNum() {
 	return phone_num;
 }
 std::string	myContact::getFirstName() {

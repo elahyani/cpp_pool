@@ -5,9 +5,8 @@
 
 class myContact
 {
-	int	index;
-	int	postal_addr;
-	int	phone_num;
+	std::string	postal_addr;
+	std::string	phone_num;
 	std::string	first_name;
 	std::string	last_name;
 	std::string	nickname;
@@ -19,7 +18,6 @@ class myContact
 	std::string	darkest_secret;
 	public:
 		myContact();
-		void    setIndex();
 		void	setPostalAddr();
 		void	setPhoneNum();
 		void	setFirstName();
@@ -31,9 +29,8 @@ class myContact
 		void	setFavMeal();
 		void	setUnderwearClr();
 		void	setDarkestSecret();
-		int getIndex();
-		int getPostalAddr();
-		int getPhoneNum();
+		std::string getPostalAddr();
+		std::string getPhoneNum();
 		std::string	getFirstName();
 		std::string	getLastName();
 		std::string	getNickname();
