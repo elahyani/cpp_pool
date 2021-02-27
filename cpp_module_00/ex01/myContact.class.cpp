@@ -1,41 +1,61 @@
 #include <iostream>
 #include "myContact.class.hpp"
 
-void    myContact::setIndex(int i) {
-	index = i;
+myContact::myContact() {
+	std::cout << "------[ PhoneBook ]------" << std::endl;
+	std::cout << "|------------------------" << std::endl;
+	std::cout << "|------------------------" << std::endl;
+	std::cout << "|------------------------" << std::endl;
+	index = -1;
+	return;
 }
-void    myContact::setPostalAddr(int ap) {
-	postal_addr = ap;
+
+void    myContact::setIndex() {
+	index++;
 }
-void    myContact::setPhoneNum(int pn) {
-	phone_num = pn;
+void    myContact::setPostalAddr() {
+	std::cout << "Postal adress: ";
+	std::cin >> postal_addr;
 }
-void    myContact::setFirstName(std::string fn) {
-	first_name = fn;
+void    myContact::setPhoneNum() {
+	std::cout << "Phone number: ";
+	std::cin >> phone_num;
 }
-void    myContact::setLastName(std::string ln) {
-	last_name = ln;
+void    myContact::setFirstName() {
+	std::cout << "First name: ";
+	std::cin >> first_name;
 }
-void    myContact::setNickname(std::string nn) {
-	nickname = nn;
+void    myContact::setLastName() {
+	std::cout << "Last name: ";
+	std::cin >> last_name;
 }
-void    myContact::setLogin(std::string lg) {
-	login = lg;
+void    myContact::setNickname() {
+	std::cout << "Nickname: ";
+	std::cin >> nickname;
 }
-void    myContact::setEmailAddr(std::string ea) {
-	email_addr = ea;
+void    myContact::setLogin() {
+	std::cout << "Login: ";
+	std::cin >> login;
 }
-void    myContact::setBirthDate(std::string bd) {
-	birth_date = bd;
+void    myContact::setEmailAddr() {
+	std::cout << "Email adress: ";
+	std::cin >> email_addr;
 }
-void    myContact::setFavMeal(std::string fm) {
-	fav_meal = fm;
+void    myContact::setBirthDate() {
+	std::cout << "Birthday date: ";
+	std::cin >> birth_date;
 }
-void    myContact::setUnderwearClr(std::string uc) {
-	underwear_clr = uc;
+void    myContact::setFavMeal() {
+	std::cout << "Favorite meal: ";
+	std::cin >> fav_meal;
 }
-void    myContact::setDarkestSecret(std::string ds) {
-	darkest_secret = ds;
+void    myContact::setUnderwearClr() {
+	std::cout << "Underwear color: ";
+	std::cin >> underwear_clr;
+}
+void    myContact::setDarkestSecret() {
+	std::cout << "Darkest secret: ";
+	std::cin >> darkest_secret;
 }
 
 int	myContact::getIndex() {
