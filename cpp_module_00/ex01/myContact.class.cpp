@@ -2,11 +2,7 @@
 #include "myContact.class.hpp"
 
 myContact::myContact() {
-	std::cout << "------[ PhoneBook ]------" << std::endl;
-	std::cout << "|------------------------" << std::endl;
-	std::cout << "|------------------------" << std::endl;
-	std::cout << "|------------------------" << std::endl;
-	index = -1;
+	this->index++;	
 	return;
 }
 
