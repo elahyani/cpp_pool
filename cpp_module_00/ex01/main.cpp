@@ -6,19 +6,29 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 16:49:24 by elahyani          #+#    #+#             */
-/*   Updated: 2021/02/27 17:08:35 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/02/28 12:02:08 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonbook.h"
-#include "myContact.class.hpp"
+#include "Phonbook.class.hpp"
+
+void	phonebook_header()
+{
+	std::cout << "\n...................[ PhoneBook ]..................." << std::endl;
+	std::cout << "+-------------------------------------------------+" << std::endl;
+	std::cout << "|                  Accepted commands              |" << std::endl;
+	std::cout << "+--------+----------------------------------------+" << std::endl;
+	std::cout << "| ADD    | add a contact to phonebook.            |" << std::endl;
+	std::cout << "+--------+----------------------------------------+" << std::endl;
+	std::cout << "| SEARCH | display a list of available contacts.  |" << std::endl;
+	std::cout << "+--------+----------------------------------------+" << std::endl;
+	std::cout << "| EXIT   | quit the program.                      |" << std::endl;
+	std::cout << "+--------+----------------------------------------+\n" << std::endl;
+}
 
 int main()
 {
-	int			j = 0;
-	int			i = 0;
-	int			done = 0;
-	myContact	contact[8];
+	Phonebook	phonebook;
 	std::string	cmd;
 
 	phonebook_header();
@@ -27,22 +37,13 @@ int main()
 		std::cout << "Insert a command: ";
 		std::cin >> cmd;
 		if (cmd == "ADD")
-		{
-			if (i < 8)
-			{
-				addContact(contact, i);
-				done = 1;
-				i++;
-			}
-			else
-				std::cout << "You can't add more contacts, phonebook is FULL."  << std::endl;
-		}
+			phonebook.addContact();
 		else if (cmd == "EXIT")
 			return (0);
 		else if (cmd == "SEARCH")
-			showContact(contact, i, j, done);
+			phonebook.showContact();
 		else
-			std::cout << "Invalid command, please insert one of the three commands: ADD, SEARCH or EXIT" <<  std::endl;
+			std::cout << "Invalid command" <<  std::endl;
 	}
 	return (0);
 }

@@ -1,21 +1,27 @@
-#include <iomanip>
-#include "myContact.class.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Phonebook.class.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/28 11:33:57 by elahyani          #+#    #+#             */
+/*   Updated: 2021/02/28 12:14:44 by elahyani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	phonebook_header()
-{
-	std::cout << "\n...................[ PhoneBook ]..................." << std::endl;
-	std::cout << "+-------------------------------------------------+" << std::endl;
-	std::cout << "|                  Accepted commands              |" << std::endl;
-	std::cout << "+--------+----------------------------------------+" << std::endl;
-	std::cout << "| ADD    | add a contact to phonebook.            |" << std::endl;
-	std::cout << "+--------+----------------------------------------+" << std::endl;
-	std::cout << "| SEARCH | display a list of available contacts.  |" << std::endl;
-	std::cout << "+--------+----------------------------------------+" << std::endl;
-	std::cout << "| EXIT   | quit the program.                      |" << std::endl;
-	std::cout << "+--------+----------------------------------------+\n" << std::endl;
+#include "Phonbook.class.hpp"
+
+Phonebook::Phonebook() {
+	this->index = 0;
+	return ;
 }
 
-std::string	truncate_string(std::string str)
+Phonebook::~Phonebook() {
+	return ;
+}
+
+std::string	Phonebook::truncate_string(std::string str)
 {
 	std::string	dest;
 
@@ -28,27 +34,45 @@ std::string	truncate_string(std::string str)
 	return (str);
 }
 
-void	addContact(myContact contact[8], int i)
+// std::string	Phonebook::takeInfo()
+// {
+// 	std::string info;
+
+	
+// 	return (info);
+// }
+
+void	Phonebook::addContact()
 {
-	contact[i].setFirstName();
-	contact[i].setLastName();
-	contact[i].setNickname();
-	contact[i].setLogin();
-	contact[i].setPostalAddr();
-	contact[i].setEmailAddr();
-	contact[i].setPhoneNum();
-	contact[i].setBirthDate();
-	contact[i].setFavMeal();
-	contact[i].setUnderwearClr();
-	contact[i].setDarkestSecret();
+	if (index < 8)
+	{	
+		contact[index].setFirstName();
+		contact[index].setLastName();
+		contact[index].setNickname();
+		contact[index].setLogin();
+		contact[index].setPostalAddr();
+		contact[index].setEmailAddr();
+		contact[index].setPhoneNum();
+		contact[index].setBirthDate(); // protect it
+		contact[index].setFavMeal();
+		contact[index].setUnderwearClr();
+		contact[index].setDarkestSecret();
+		std::cout << "[ + ] Contact added successfully.\n" << std::endl;
+		index++;
+	}
+	else
+	{
+		std::cout << "Phonebook is FULL" <<std::endl;
+		return ;		
+	}
 }
 
-void	showSpecContact(myContact contact[8], int j)
+void	Phonebook::showSpecContact(int j)
 {
-	int		index;
+	int		limit;
 
 	std::cout << "Insert index desired: ";
-	std::cin >> index;
+	std::cin >> limit;
 
 	if (index >= 0 && index < j && std::cin.good())
 	{
@@ -74,7 +98,7 @@ void	showSpecContact(myContact contact[8], int j)
 	}
 }
 
-void	showContact(myContact contact[8], int i, int j, int done)
+void	Phonebook::showContact()
 {
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
 	std::cout << "|" << std::setw(10)
@@ -84,10 +108,10 @@ void	showContact(myContact contact[8], int i, int j, int done)
 			  << "nickname" << "|" << std::setw(10)
 			  << std::endl;
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
-	if (done)
+	if (index)
 	{
-		j = 0;
-		while (j < i)
+		int j = 0;
+		while (j < index)
 		{
 			std::cout << "|" << std::setw(10)
 					  << j << "|" << std::setw(10)
@@ -98,15 +122,14 @@ void	showContact(myContact contact[8], int i, int j, int done)
 			std::cout << "+----------+----------+----------+----------+" << std::endl;
 			j++;
 		}
-		showSpecContact(contact, j);
+		showSpecContact(j);
 	}
 	else
 	{
-		std::cout << "|" << std::setw(11)
-				  << "|" << std::setw(11)
-				  << "|" << std::setw(11)
-				  << "|" << std::setw(11)
-				  << "|" << std::endl;
+		for (int k = 0; k < 4; k++) {
+			std::cout << "|" << std::setw(11);
+		}
+		std::cout << "|" << std::endl;
 		std::cout << "+----------+----------+----------+----------+" << std::endl;
 	}
 }

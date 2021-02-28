@@ -6,13 +6,13 @@
 #    By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/27 16:53:05 by elahyani          #+#    #+#              #
-#    Updated: 2021/02/27 16:59:40 by elahyani         ###   ########.fr        #
+#    Updated: 2021/02/28 11:58:04 by elahyani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
-SRCS = phonebook.cpp myContact.class.cpp
+SRCS = Phonebook.class.cpp myContact.class.cpp
 
 MAIN = main.cpp
 
