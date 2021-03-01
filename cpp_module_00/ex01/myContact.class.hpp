@@ -1,8 +1,6 @@
 #ifndef MYCONTACT_CLASS_HPP
 # define MYCONTACT_CLASS_HPP
 
-# include <iostream>
-# include <iomanip>
 # include <string>
 
 class myContact
@@ -24,28 +22,28 @@ private:
 public:
 	myContact(void);
 	~myContact(void);
+	void	setFirstName(std::string);
+	void	setLastName(std::string);
+	void	setNickname(std::string);
+	void	setLogin(std::string);
+	void	setPostalAddr(std::string);
+	void	setEmailAddr(std::string);
+	void	setPhoneNum(std::string);
+	void	setBirthDate(std::string);
+	void	setUnderwearClr(std::string);
+	void	setFavMeal(std::string);
+	void	setDarkestSecret(std::string);
 	std::string	getFirstName();
-	void	setFirstName();
 	std::string	getLastName();
-	void	setLastName();
 	std::string	getNickname();
-	void	setNickname();
 	std::string	getLogin();
-	void	setLogin();
 	std::string getPostalAddr();
-	void	setPostalAddr();
 	std::string	getEmailAddr();
-	void	setEmailAddr();
 	std::string getPhoneNum();
-	void	setPhoneNum();
 	std::string	getBirthDate();
-	void	setBirthDate();
 	std::string	getFavMeal();
-	void	setUnderwearClr();
 	std::string	getUnderwearClr();
-	void	setFavMeal();
 	std::string	getDarkestSecret();
-	void	setDarkestSecret();
 };
 
 #endif

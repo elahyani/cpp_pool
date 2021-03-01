@@ -11,13 +11,14 @@
 /* ************************************************************************** */
 
 #include "Phonbook.class.hpp"
+#define INT_MAX 2147483647
 
-Phonebook::Phonebook() {
-	this->index = 0;
+Phonebook::Phonebook(void) {
+	this->id = 0;
 	return ;
 }
 
-Phonebook::~Phonebook() {
+Phonebook::~Phonebook(void) {
 	return ;
 }
 
@@ -34,60 +35,61 @@ std::string	Phonebook::truncate_string(std::string str)
 	return (str);
 }
 
-// std::string	Phonebook::takeInfo()
-// {
-// 	std::string info;
-
-	
-// 	return (info);
-// }
-
-void	Phonebook::addContact()
+std::string	Phonebook::takeInfo(std::string label)
 {
-	if (index < 8)
+	std::string info;
+
+	std::cout << label;
+	std::getline(std::cin, info);
+	return (info);
+}
+
+void	Phonebook::addContact(void)
+{
+	if (id < 8)
 	{	
-		contact[index].setFirstName();
-		contact[index].setLastName();
-		contact[index].setNickname();
-		contact[index].setLogin();
-		contact[index].setPostalAddr();
-		contact[index].setEmailAddr();
-		contact[index].setPhoneNum();
-		contact[index].setBirthDate(); // protect it
-		contact[index].setFavMeal();
-		contact[index].setUnderwearClr();
-		contact[index].setDarkestSecret();
+		contact[id].setFirstName(takeInfo("label1: "));
+		contact[id].setLastName(takeInfo("label2: "));
+		contact[id].setNickname(takeInfo("label3: "));
+		contact[id].setLogin(takeInfo("label4: "));
+		contact[id].setPostalAddr(takeInfo("label5: "));
+		contact[id].setEmailAddr(takeInfo("label6: "));
+		contact[id].setPhoneNum(takeInfo("label7: "));
+		contact[id].setBirthDate(takeInfo("label8: ")); // protect it
+		contact[id].setFavMeal(takeInfo("label9: "));
+		contact[id].setUnderwearClr(takeInfo("label10: "));
+		contact[id].setDarkestSecret(takeInfo("label11: "));
+		id++;
 		std::cout << "[ + ] Contact added successfully.\n" << std::endl;
-		index++;
 	}
 	else
 	{
 		std::cout << "Phonebook is FULL" <<std::endl;
-		return ;		
-	}
+		return ;
+	}		
 }
 
 void	Phonebook::showSpecContact(int j)
 {
-	int		limit;
+	int		pos;
 
 	std::cout << "Insert index desired: ";
-	std::cin >> limit;
+	std::cin >> pos;
 
-	if (index >= 0 && index < j && std::cin.good())
+	if (pos >= 0 && pos < j && std::cin.good())
 	{
 		std::cout << "------------------------------------" << std::endl;
-		std::cout << "First name: " << contact[index].getFirstName() << std::endl;
-		std::cout << "Last name: " << contact[index].getLastName() << std::endl;
-		std::cout << "Nickname: " << contact[index].getNickname() << std::endl;
-		std::cout << "Login: " << contact[index].getLogin() << std::endl;
-		std::cout << "Postal adress: " << contact[index].getPostalAddr() << std::endl;
-		std::cout << "Email adress: " << contact[index].getEmailAddr() << std::endl;
-		std::cout << "Phone number: " << contact[index].getPhoneNum() << std::endl;
-		std::cout << "Birthday date: " << contact[index].getBirthDate() << std::endl;
-		std::cout << "Favorite meal: " << contact[index].getFavMeal() << std::endl;
-		std::cout << "Underwear color: " << contact[index].getUnderwearClr() << std::endl;
-		std::cout << "Darkest secret: " << contact[index].getDarkestSecret() << std::endl;
+		std::cout << "First name: " << contact[pos].getFirstName() << std::endl;
+		std::cout << "Last name: " << contact[pos].getLastName() << std::endl;
+		std::cout << "Nickname: " << contact[pos].getNickname() << std::endl;
+		std::cout << "Login: " << contact[pos].getLogin() << std::endl;
+		std::cout << "Postal adress: " << contact[pos].getPostalAddr() << std::endl;
+		std::cout << "Email adress: " << contact[pos].getEmailAddr() << std::endl;
+		std::cout << "Phone number: " << contact[pos].getPhoneNum() << std::endl;
+		std::cout << "Birthday date: " << contact[pos].getBirthDate() << std::endl;
+		std::cout << "Favorite meal: " << contact[pos].getFavMeal() << std::endl;
+		std::cout << "Underwear color: " << contact[pos].getUnderwearClr() << std::endl;
+		std::cout << "Darkest secret: " << contact[pos].getDarkestSecret() << std::endl;
 		std::cout << "------------------------------------" << std::endl;
 	}
 	else
@@ -98,7 +100,7 @@ void	Phonebook::showSpecContact(int j)
 	}
 }
 
-void	Phonebook::showContact()
+void	Phonebook::showContact(void)
 {
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
 	std::cout << "|" << std::setw(10)
@@ -108,10 +110,10 @@ void	Phonebook::showContact()
 			  << "nickname" << "|" << std::setw(10)
 			  << std::endl;
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
-	if (index)
+	if (id)
 	{
 		int j = 0;
-		while (j < index)
+		while (j < id)
 		{
 			std::cout << "|" << std::setw(10)
 					  << j << "|" << std::setw(10)

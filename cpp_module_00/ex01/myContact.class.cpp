@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "myContact.class.hpp"
+#include <string>
 
 myContact::myContact() {
 	return ;
@@ -20,67 +21,70 @@ myContact::~myContact() {
 	return ;
 }
 
-void    myContact::setFirstName() {
-	std::cout << "First name: ";
-	std::getline(std::cin, this->first_name);
+void    myContact::setFirstName(std::string fn) {
+	// std::cout << "First name: ";
+	// std::getline(std::cin, fn);
+	this->first_name = fn;
 }
 
-void    myContact::setLastName() {
-	std::cout << "Last name: ";
-	std::getline(std::cin, this->last_name);
+void    myContact::setLastName(std::string ln) {
+	// std::cout << "Last name: ";
+	// std::getline(std::cin, ln);
+	this->last_name = ln;
 }
 
-void    myContact::setNickname() {
-	std::cout << "Nickname: ";
-	std::getline(std::cin, this->nickname);
+void    myContact::setNickname(std::string nn) {
+	// std::cout << "Nickname: ";
+	// std::getline(std::cin, nn);
+	this->nickname = nn;
 }
 
-void    myContact::setLogin() {
-	std::cout << "Login: ";
-	std::getline(std::cin, this->login);
+void    myContact::setLogin(std::string lg) {
+	// std::cout << "Login: ";
+	// std::getline(std::cin, lg);
+	this->login = lg;
 }
 
-void    myContact::setPostalAddr() {
-	std::cout << "Postal adress: ";
-	std::getline(std::cin, this->postal_addr);
+void    myContact::setPostalAddr(std::string pa) {
+	// std::cout << "Postal adress: ";
+	// std::getline(std::cin, pa);
+	this->postal_addr = pa;
 }
 
-void    myContact::setEmailAddr() {
-	std::cout << "Email adress: ";
-	std::getline(std::cin, this->email_addr);
+void    myContact::setEmailAddr(std::string ea) {
+	// std::cout << "Email adress: ";
+	// std::getline(std::cin, ea);
+	this->email_addr = ea;
 }
 
-void    myContact::setPhoneNum() {
-	std::cout << "Phone number: ";
-	std::getline(std::cin, this->phone_num);
+void    myContact::setPhoneNum(std::string pn) {
+	// std::cout << "Phone number: ";
+	// std::getline(std::cin, pn);
+	this->phone_num = pn;
 }
 
-void    myContact::setBirthDate() {
-	std::cout << "Birthday date (dd/mm/yy): ";
-	std::getline(std::cin, this->birth_date);
+void    myContact::setBirthDate(std::string bd) {
+	// std::cout << "Birthday date (dd/mm/yy): ";
+	// std::getline(std::cin, bd);
+	this->birth_date = bd;
 }
 
-void    myContact::setFavMeal() {
-	std::cout << "Favorite meal: ";
-	std::getline(std::cin, this->fav_meal);
+void    myContact::setFavMeal(std::string fm) {
+	// std::cout << "Favorite meal: ";
+	// std::getline(std::cin, fm);
+	this->fav_meal = fm;
 }
 
-void    myContact::setUnderwearClr() {
-	std::cout << "Underwear color: ";
-	std::getline(std::cin, this->underwear_clr);
+void    myContact::setUnderwearClr(std::string uc) {
+	// std::cout << "Underwear color: ";
+	// std::getline(std::cin, uc);
+	this->underwear_clr = uc;
 }
 
-void    myContact::setDarkestSecret() {
-	std::cout << "Darkest secret: ";
-	std::getline(std::cin, this->darkest_secret);
-}
-
-std::string	myContact::getPostalAddr() {
-	return this->postal_addr;
-}
-
-std::string	myContact::getPhoneNum() {
-	return this->phone_num;
+void    myContact::setDarkestSecret(std::string ds) {
+	// std::cout << "Darkest secret: ";
+	// std::getline(std::cin, ds);
+	this->darkest_secret = ds;
 }
 
 std::string	myContact::getFirstName() {
@@ -89,6 +93,14 @@ std::string	myContact::getFirstName() {
 
 std::string	myContact::getLastName() {
 	return this->last_name;
+}
+
+std::string	myContact::getPostalAddr() {
+	return this->postal_addr;
+}
+
+std::string	myContact::getPhoneNum() {
+	return this->phone_num;
 }
 
 std::string	myContact::getNickname() {
@@ -115,6 +127,6 @@ std::string	myContact::getUnderwearClr() {
 	return this->underwear_clr;
 }
 
-std::string	myContact::getDarkestSecret() {
+std::string	myContact::getDarkestSecret(){
 	return this->darkest_secret;
 }
