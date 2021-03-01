@@ -3,6 +3,9 @@
 
 # include <iostream>
 # include <iomanip>
+# include <string>
+# include <limits>
+# include <ctime>
 # include "myContact.class.hpp"
 
 class Phonebook
@@ -15,7 +18,6 @@ private:
 public:
 	Phonebook(void);
 	~Phonebook(void);
-	std::string	takeInfo(std::string label);
 	void		addContact(void);
 	void		showSpecContact(int j);
 	void		showContact(void);

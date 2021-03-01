@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 16:49:24 by elahyani          #+#    #+#             */
-/*   Updated: 2021/02/28 12:02:08 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/01 12:02:16 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,15 @@ int main()
 	while (1)
 	{
 		std::cout << "Insert a command: ";
-		std::cin >> cmd;
-		if (cmd == "ADD")
+		std::getline(std::cin, cmd);
+		if (cmd == "ADD" || cmd == "add")
 			phonebook.addContact();
-		else if (cmd == "EXIT")
+		else if (cmd == "EXIT" || cmd == "exit")
+		{
+			std::cout << "BYE" << std::endl;
 			return (0);
-		else if (cmd == "SEARCH")
+		}
+		else if (cmd == "SEARCH" || cmd == "search")
 			phonebook.showContact();
 		else
 			std::cout << "Invalid command" <<  std::endl;
