@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hel <hel@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 12:41:07 by hel               #+#    #+#             */
-/*   Updated: 2021/03/05 17:41:38 by hel              ###   ########.fr       */
+/*   Updated: 2021/03/10 17:54:04 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 class   HumanA
 {
-	Weapon	*weapon;
+	Weapon	&weapon;
 	std::string	name;
 	public:
 		HumanA(std::string name, Weapon &weapon);
