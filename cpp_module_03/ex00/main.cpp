@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:08:54 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/15 11:37:29 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/17 17:52:54 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 
 int	main()
 {
-	FragTrap	fragt;
+	FragTrap	fragt("X");
+	FragTrap	target("Y");
+	
+	target.takeDamage(fragt.rangedAttack(target.getName()));
+	target.takeDamage(fragt.meleeAttack(target.getName()));
+	target.takeDamage(fragt.meleeAttack(target.getName()));
+	target.takeDamage(fragt.meleeAttack(target.getName()));
+	target.takeDamage(fragt.rangedAttack(target.getName()));
 
 	return (0);
 }

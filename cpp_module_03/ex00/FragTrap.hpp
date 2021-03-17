@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:09:21 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/15 10:42:22 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/17 17:42:00 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,30 @@ class	FragTrap
 {
 
 private:
+	std::string	name;
 	int	hitPoints;
 	int	maxHitPoints;
 	int	energyPoints;
 	int	maxEnergyPoints;
 	int	level;
-	std::string	name;
 	int	meleeAttackDamage;
 	int	rangedAttackDamage;
-	int	armoreDamageReduction;
+	int	armoreDamageReduction; 
 
 public:
-	FragTrap(void);
 	FragTrap(std::string nm);
 	FragTrap(const FragTrap & src);
 	FragTrap&	operator=(const FragTrap& rhs);
 	~FragTrap();
 	
-	void	rangedAttack(std::string const & target);
-	void	meleeAttack(std::string const & target);
-	unsigned int	takeDamage(unsigned int amount);
-	unsigned int	beRepaired(unsigned int amount);
+	void	setName(std::string nm);
+	std::string	getName(void) const;
+	unsigned int	rangedAttack(std::string const & target); // far attack
+	unsigned int	meleeAttack(std::string const & target); // close attack
+	void	takeDamage(unsigned int amount); // damage
+	void	beRepaired(unsigned int amount); // kathili
+	void	vaulthunter_dot_exe(std::string const  & target);
+
 };
 
 #endif
