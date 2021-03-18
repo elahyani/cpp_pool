@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:08:54 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/18 12:47:55 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/18 18:23:32 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,31 @@ int	main()
 	// FragTrap	attacker1;
 	// FragTrap	enemy1;
 
-	enemy.takeDamage(attacker.rangedAttack(enemy.getName()));	
+	enemy.takeDamage(attacker.rangedAttack(enemy.getName()));
+	enemy.takeDamage(attacker.rangedAttack(enemy.getName()));
+	enemy.takeDamage(attacker.rangedAttack(enemy.getName()));
+	enemy.takeDamage(attacker.meleeAttack(enemy.getName()));		
+	enemy.takeDamage(attacker.meleeAttack(enemy.getName()));		
+	enemy.beRepaired(50);
 	enemy.takeDamage(attacker.meleeAttack(enemy.getName()));		
 	enemy.takeDamage(attacker.vaulthunter_dot_exe(enemy.getName()));
-	enemy.takeDamage(attacker.vaulthunter_dot_exe(enemy.getName()));
-	enemy.takeDamage(attacker.vaulthunter_dot_exe(enemy.getName()));
-	enemy.takeDamage(attacker.vaulthunter_dot_exe(enemy.getName()));
+	// enemy.takeDamage(attacker.vaulthunter_dot_exe(enemy.getName()));
+	// enemy.takeDamage(attacker.vaulthunter_dot_exe(enemy.getName()));
+	// enemy.takeDamage(attacker.vaulthunter_dot_exe(enemy.getName()));
+	// enemy.takeDamage(attacker.vaulthunter_dot_exe(enemy.getName()));
+	// enemy.takeDamage(attacker.vaulthunter_dot_exe(enemy.getName()));
 	enemy.takeDamage(attacker.meleeAttack(enemy.getName()));	
-	enemy.takeDamage(attacker.rangedAttack(enemy.getName()));
 
-	// enemy.takeDamage(attacker.rangedAttack(enemy.getName()));
-	// enemy.takeDamage(attacker.meleeAttack(enemy.getName()));
-	// enemy.takeDamage(attacker.meleeAttack(enemy.getName()));
-	// enemy.takeDamage(attacker.meleeAttack(enemy.getName()));
-	// enemy.takeDamage(attacker.rangedAttack(enemy.getName()));
-	// enemy.beRepaired(90);
-	// std::cout << "-------------------------------------" << std::endl;
-
-	// attacker1.setName("B");
-	// enemy1.setName("W");
-	// enemy1.takeDamage(attacker1.rangedAttack(enemy1.getName()));
-	// enemy1.takeDamage(attacker1.meleeAttack(enemy1.getName()));
-	// enemy1.takeDamage(attacker1.rangedAttack(enemy1.getName()));
-	// enemy1.takeDamage(attacker1.rangedAttack(enemy1.getName()));
-	// enemy1.beRepaired(50);
-
-	// attacker.vaulthunter_dot_exe(enemy.getName());
-	// attacker.vaulthunter_dot_exe(enemy.getName());
-	// attacker.vaulthunter_dot_exe(enemy.getName());
-	// attacker.vaulthunter_dot_exe(enemy.getName());
-	// attacker.vaulthunter_dot_exe(enemy.getName());
-
+	// std::cout << "-------------------------------" << std::endl;
+	// attacker.takeDamage(enemy.rangedAttack(attacker.getName()));	
+	// attacker.takeDamage(enemy.meleeAttack(attacker.getName()));		
+	// attacker.takeDamage(enemy.vaulthunter_dot_exe(attacker.getName()));
+	// attacker.takeDamage(enemy.vaulthunter_dot_exe(attacker.getName()));
+	// attacker.takeDamage(enemy.vaulthunter_dot_exe(attacker.getName()));
+	// attacker.takeDamage(enemy.vaulthunter_dot_exe(attacker.getName()));
+	// attacker.takeDamage(enemy.vaulthunter_dot_exe(attacker.getName()));
+	// attacker.takeDamage(enemy.vaulthunter_dot_exe(attacker.getName()));
+	// attacker.takeDamage(enemy.meleeAttack(attacker.getName()));	
+	
 	return (0);
 }

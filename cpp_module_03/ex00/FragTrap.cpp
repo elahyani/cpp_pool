@@ -6,23 +6,23 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:23:15 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/18 12:45:16 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/18 18:25:22 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-int		FragTrap::maxHitPoints = 100;
-int		FragTrap::maxEnergyPoints = 100;
-int		FragTrap::meleeAttackDamage = 30;
-int		FragTrap::rangedAttackDamage = 20;
-int		FragTrap::armoreDamageReduction = 5;
+unsigned int	FragTrap::maxHitPoints = 100;
+unsigned int	FragTrap::maxEnergyPoints = 100;
+unsigned int	FragTrap::meleeAttackDamage = 30;
+unsigned int	FragTrap::rangedAttackDamage = 20;
+unsigned int	FragTrap::armoreDamageReduction = 5;
 
 FragTrap::FragTrap(void)
 {
 	// std::cout << this->name << "Let's get this party started!" << std::endl;
 	this->hitPoints = 100;
-	this->energyPoints = 100; // relatedt to vaulthunter_dot_exe fct
+	this->energyPoints = 100;
 	this->level = 1;
 	
 }
@@ -31,7 +31,7 @@ FragTrap::FragTrap(std::string nm) : name(nm)
 {
 	// std::cout << this->name << ": Let's get this party started!" << std::endl;
 	this->hitPoints = 100;
-	this->energyPoints = 100; // relatedt to vaulthunter_dot_exe fct
+	this->energyPoints = 100;
 	this->level = 1;
 }
 
@@ -88,11 +88,14 @@ void	FragTrap::takeDamage(unsigned int amount)
 	if (this->hitPoints < amount)
 	{
 		this->hitPoints = 0;
-		std::cout << this->name << ": I'M DEAD I'M DEAD OHMYGOD I'M DEAD!" << std::endl;
+		// std::cout << this->name << ": I'M DEAD I'M DEAD OHMYGOD I'M DEAD!" << std::endl;
 	}
 	else
-		this->hitPoints -= amount; //+ this->armoreDamageReduction;
-	std::cout << this->name << " still have " << this->hitPoints << " of hit points\n" << std::endl;
+		this->hitPoints = this->hitPoints - amount + this->armoreDamageReduction;
+	if (this->hitPoints > 0)
+		std::cout << this->name << " still have " << this->hitPoints << " of hit points\n" << std::endl;
+	else
+		std::cout << "\n" << this->name << ": I'M DEAD I'M DEAD OHMYGOD I'M DEAD!" << std::endl;
 }
 
 void	FragTrap::beRepaired(unsigned int amount)
@@ -101,8 +104,8 @@ void	FragTrap::beRepaired(unsigned int amount)
 		this->hitPoints = 100;
 	else
 		this->hitPoints += amount;
-	std::cout << this->name << " has been repaired by <" << amount <<
-	"> hit points, and current hit points is <" << this->hitPoints  << ">" << std::endl;
+	std::cout << "\n" << this->name << " has been repaired by <" << amount <<
+	"> hit points, and current hit points is <" << this->hitPoints  << ">\n" << std::endl;
 }
 
 unsigned int	FragTrap::vaulthunter_dot_exe(std::string const & target)
@@ -121,7 +124,7 @@ unsigned int	FragTrap::vaulthunter_dot_exe(std::string const & target)
 		this->energyPoints -= 25;
 		return (this->*attacks[rand() % 5])(target);
 	}
-	std::cout << "0 energy dude" << std::endl;
+	std::cout << this->name << ": Damn! am out of energy." << std::endl;
 	return 0;
 }
 

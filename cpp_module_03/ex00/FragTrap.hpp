@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:09:21 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/18 12:41:27 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/18 17:40:27 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ class	FragTrap
 
 private:
 	std::string	name;
-	int			hitPoints;
-	static int	maxHitPoints;
-	int			energyPoints;
-	static int	maxEnergyPoints;
-	int			level;
-	static int	meleeAttackDamage;
-	static int	rangedAttackDamage;
-	static int	armoreDamageReduction;
+	unsigned int		hitPoints;
+	static unsigned int	maxHitPoints;
+	unsigned int		energyPoints;
+	static unsigned int	maxEnergyPoints;
+	unsigned int		level;
+	static unsigned int	meleeAttackDamage;
+	static unsigned int	rangedAttackDamage;
+	static unsigned int	armoreDamageReduction;
 	unsigned int	attack1(std::string const & target);
 	unsigned int	attack2(std::string const & target);
 	unsigned int	attack3(std::string const & target);
