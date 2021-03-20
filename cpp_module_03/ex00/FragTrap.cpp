@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:23:15 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/18 18:25:22 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/20 14:06:25 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,11 @@ FragTrap::FragTrap(void)
 	this->hitPoints = 100;
 	this->energyPoints = 100;
 	this->level = 1;
-	
 }
 
 FragTrap::FragTrap(std::string nm) : name(nm)
 {
-	// std::cout << this->name << ": Let's get this party started!" << std::endl;
+	std::cout << this->name << ": Let's get this party started!\n" << std::endl;
 	this->hitPoints = 100;
 	this->energyPoints = 100;
 	this->level = 1;
@@ -42,7 +41,7 @@ FragTrap::FragTrap(const FragTrap & src)
 
 FragTrap::~FragTrap()
 {
-	// std::cout << this->name << ": I'M DEAD I'M DEAD OHMYGOD I'M DEAD!" << std::endl;
+	std::cout << this->name << "Don't tell me that wasn't awesome!" << std::endl;
 }
 
 void	FragTrap::setName(std::string nm)
@@ -71,51 +70,61 @@ FragTrap&	FragTrap::operator=(const FragTrap& rhs)
 
 unsigned int	FragTrap::rangedAttack(std::string const & target)
 {
-	std::cout << "FRAG-TP <" << this->name << "> attacks <" << target << "> at range, causing <"
-	<< this->rangedAttackDamage << "> points of damage!" << std::endl;
+	if (this->hitPoints == 0)
+		return 0;
+	std::cout << "FRAG-TP Ratattattattatta! Pew-pew-pewpew! <\33[1;32m" 
+	<< this->name << "\33[0m> attacks <\33[1;33m" << target << "\33[0m> at range, causing <\33[1;36m"
+	<< this->rangedAttackDamage << "\33[0m> points of damage!" << std::endl;
 	return this->rangedAttackDamage;
 }
 
 unsigned int	FragTrap::meleeAttack(std::string const & target)
 {
-	std::cout << "FRAG-TP <" << this->name << "> attacks <" << target << "> at melee, causing <"
-	<< this->meleeAttackDamage << "> points of damage!" << std::endl;
+	if (this->hitPoints == 0)
+		return 0;
+	std::cout << "FRAG-TP Heyyaaaaah <\33[1;32m" 
+	<< this->name << "\33[0m> attacks <\33[1;33m" << target << "\33[0m> at melee, causing <\33[1;36m"
+	<< this->meleeAttackDamage << "\33[0m> points of damage!" << std::endl;
 	return this->meleeAttackDamage;
 }
 
 void	FragTrap::takeDamage(unsigned int amount)
 {
 	if (this->hitPoints < amount)
-	{
 		this->hitPoints = 0;
-		// std::cout << this->name << ": I'M DEAD I'M DEAD OHMYGOD I'M DEAD!" << std::endl;
-	}
 	else
 		this->hitPoints = this->hitPoints - amount + this->armoreDamageReduction;
-	if (this->hitPoints > 0)
-		std::cout << this->name << " still have " << this->hitPoints << " of hit points\n" << std::endl;
-	else
-		std::cout << "\n" << this->name << ": I'M DEAD I'M DEAD OHMYGOD I'M DEAD!" << std::endl;
+	std::cout << this->name << "=> Hit Points left:  " << this->hitPoints << std::endl;
+	std::cout << this->name << "=> Energy Points left:  " << this->energyPoints << "\n" << std::endl;
+	if (this->hitPoints == 0)
+		std::cout << "\33[31m" << this->name << ": I'M DEAD I'M DEAD OHMYGOD I'M DEAD!\33[0m" << std::endl;
 }
 
 void	FragTrap::beRepaired(unsigned int amount)
 {
-	if (this->hitPoints + amount > 100)
-		this->hitPoints = 100;
-	else
-		this->hitPoints += amount;
-	std::cout << "\n" << this->name << " has been repaired by <" << amount <<
-	"> hit points, and current hit points is <" << this->hitPoints  << ">\n" << std::endl;
+	if (this->hitPoints > 0)
+	{
+		if (this->hitPoints + amount > this->maxHitPoints)
+			this->hitPoints = this->maxHitPoints;
+		else
+			this->hitPoints += amount;
+			std::cout << this->name << " has been repaired by <" << amount << "HP>" << std::endl;
+	}
+	std::cout << this->name << "=> Hit Points left:  " << this->hitPoints << std::endl;
+	std::cout << this->name << "=> Energy Points left:  " << this->energyPoints << "\n" << std::endl;
 }
 
 unsigned int	FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
+	if (this->hitPoints == 0)
+		return 0;
+	std::cout << "\33[36mLook out everybody, things are about to get awesome!\33[0m" << std::endl;
 	unsigned int	(FragTrap::*attacks[5])(std::string const &) = {
-		&FragTrap::attack1,
-		&FragTrap::attack2,
-		&FragTrap::attack3,
-		&FragTrap::attack4,
-		&FragTrap::attack5
+		&FragTrap::GomuGomuNoPistol,
+		&FragTrap::DemonSlayerSword,
+		&FragTrap::SantoryuOugiSanzenSekai,
+		&FragTrap::SpritBomb,
+		&FragTrap::Rasengan
 	};
 
 	srand(clock());
@@ -128,35 +137,42 @@ unsigned int	FragTrap::vaulthunter_dot_exe(std::string const & target)
 	return 0;
 }
 
-unsigned int	FragTrap::attack1(std::string const & target)
+unsigned int	FragTrap::GomuGomuNoPistol(std::string const & target)
 {
-	std::cout << "FRAG-TP <" << this->name << "> attacks1 <" << target << "> at range, causing <"
-	<< 5 << "> points of damage!" << std::endl;
-	return 5;
+	std::cout << "🤜🤜🤜 Gumo Gumo no pistolyyyyyy <\33[1;32m" 
+	<< this->name << "\33[0m> attacks <\33[1;33m" << target << "\33[0m>, causing <\33[1;36m"
+	<< 9 << "\33[0m> points of damage!" << std::endl;
+	return 9;
 }
 
-unsigned int	FragTrap::attack2(std::string const & target)
+unsigned int	FragTrap::DemonSlayerSword(std::string const & target)
 {
-	
-	std::cout << "FRAG-TP <" << this->name << "> attacks2 <" << target << "> at range, causing <"
-	<< 12 << "> points of damage!" << std::endl;
-	return 12;
+	std::cout << "🔪 Demon Slayer Sword <\33[1;32m" 
+	<< this->name << "\33[0m> attacks <\33[1;33m" << target << "\33[0m>, causing <\33[1;36m"
+	<< 20 << "\33[0m> points of damage!" << std::endl;
+	return 20;
 }
-unsigned int	FragTrap::attack3(std::string const & target)
+
+unsigned int	FragTrap::SantoryuOugiSanzenSekai(std::string const & target)
 {
-	std::cout << "FRAG-TP <" << this->name << "> attacks3 <" << target << "> at range, causing <"
-	<< 10 << "> points of damage!" << std::endl;
-	return 10;
-}
-unsigned int	FragTrap::attack4(std::string const & target)
-{
-	std::cout << "FRAG-TP <" << this->name << "> attacks4 <" << target << "> at range, causing <"
-	<< 15 << "> points of damage!" << std::endl;
+	std::cout << "🗡 🗡 🗡  Santoryu ougi sanzen sekai <\33[1;32m" 
+	<< this->name << "\33[0m> attacks <\33[1;33m" << target << "\33[0m>, causing <\33[1;36m"
+	<< 15 << "\33[0m> points of damage!" << std::endl;
 	return 15;
 }
-unsigned int	FragTrap::attack5(std::string const & target)
+
+unsigned int	FragTrap::SpritBomb(std::string const & target)
 {
-	std::cout << "FRAG-TP <" << this->name << "> attacks5 <" << target << "> at range, causing <"
-	<< 9 << "> points of damage!" << std::endl;
-	return 9;
+	std::cout << "💥 Sprit Boooooomb <\33[1;32m" 
+	<< this->name << "\33[0m> attacks <\33[1;33m" << target << "\33[0m>, causing <\33[1;36m"
+	<< 25 << "\33[0m> points of damage!" << std::endl;
+	return 25;
+}
+
+unsigned int	FragTrap::Rasengan(std::string const & target)
+{
+	std::cout << "🌐 Raaaaasennnngan <\33[1;32m" 
+	<< this->name << "\33[0m> attacks <\33[1;33m" << target << "\33[0m> causing <\33[1;36m"
+	<< 10 << "\33[0m> points of damage!" << std::endl;
+	return 10;
 }

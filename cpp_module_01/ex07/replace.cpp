@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 15:51:01 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/11 15:51:02 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/20 14:33:43 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,15 @@ int main(int argc, char **argv) {
 	std::string	line;
 	std::string	oldw;
 	std::string	neww;
-	std::string filename;
+	std::string filename = argv[1];
 
 	if (argc != 4) {
 		std::cout << "error:\tbad arguments." << std::endl;
+		return (1);
+	}
+	else if (filename.length() == 0)
+	{
+		std::cout << "error:\tinvalid arguments" << std::endl;
 		return (1);
 	}
 	oldw = argv[2];

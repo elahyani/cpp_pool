@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 16:07:52 by hel               #+#    #+#             */
-/*   Updated: 2021/03/11 15:52:33 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/20 14:45:12 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,12 @@ int	Brain::getWeight()
 std::string	Brain::identify() const
 {
 	std::stringstream	ss;
+	std::string			str;
+	int	i = -1;
 
 	ss << this;
-	return (ss.str());
+	str = ss.str();
+	while (str[++i])
+		str[i] = std::toupper(str[i]);
+	return (str);
 }

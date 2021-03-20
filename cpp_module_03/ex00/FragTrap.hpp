@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:09:21 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/18 17:40:27 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/20 12:48:38 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <cstdlib>
 
 class	FragTrap
 {
@@ -29,11 +30,11 @@ private:
 	static unsigned int	meleeAttackDamage;
 	static unsigned int	rangedAttackDamage;
 	static unsigned int	armoreDamageReduction;
-	unsigned int	attack1(std::string const & target);
-	unsigned int	attack2(std::string const & target);
-	unsigned int	attack3(std::string const & target);
-	unsigned int	attack4(std::string const & target);
-	unsigned int	attack5(std::string const & target);
+	unsigned int	GomuGomuNoPistol(std::string const & target);
+	unsigned int	DemonSlayerSword(std::string const & target);
+	unsigned int	SantoryuOugiSanzenSekai(std::string const & target);
+	unsigned int	SpritBomb(std::string const & target);
+	unsigned int	Rasengan(std::string const & target);
 
 public:
 	FragTrap();
