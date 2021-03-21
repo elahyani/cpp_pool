@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:08:54 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/20 18:35:40 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/21 15:48:20 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,23 @@
 
 int	main()
 {
-	FragTrap	abc("baga");
-	FragTrap	xyz("babo");
-	// FragTrap	abc1;
-	// FragTrap	xyz1;
-
-	xyz.takeDamage(abc.rangedAttack(xyz.getName()));
-	xyz.takeDamage(abc.rangedAttack(xyz.getName()));
-
- 	abc.takeDamage(xyz.rangedAttack(abc.getName()));
-	abc.takeDamage(xyz.rangedAttack(abc.getName()));
-
-	xyz.takeDamage(abc.vaulthunter_dot_exe(xyz.getName()));
-	xyz.takeDamage(abc.rangedAttack(xyz.getName()));
-
-	abc.takeDamage(xyz.vaulthunter_dot_exe(abc.getName()));
-	abc.takeDamage(xyz.vaulthunter_dot_exe(abc.getName()));
-
-	xyz.takeDamage(abc.vaulthunter_dot_exe(xyz.getName()));
-	xyz.takeDamage(abc.meleeAttack(xyz.getName()));		
-
-	abc.takeDamage(xyz.rangedAttack(abc.getName()));
-	abc.takeDamage(xyz.vaulthunter_dot_exe(abc.getName()));
-	abc.takeDamage(xyz.vaulthunter_dot_exe(abc.getName()));
-
-	xyz.takeDamage(abc.meleeAttack(xyz.getName()));		
-	xyz.beRepaired(50);
-	xyz.takeDamage(abc.vaulthunter_dot_exe(xyz.getName()));
-	xyz.takeDamage(abc.meleeAttack(xyz.getName()));		
-
-	xyz.takeDamage(abc.meleeAttack(xyz.getName()));	
-
+	FragTrap	baga("baga");
+	FragTrap	babo("babo");
 	
+	while (!babo.isdead())
+	{
+		if (!babo.isdead())
+			babo.takeDamage(baga.rangedAttack(babo.getName()));
+		if (!babo.isdead())
+			babo.takeDamage(baga.meleeAttack(babo.getName()));
+		if (!babo.isdead())
+			babo.takeDamage(baga.vaulthunter_dot_exe(babo.getName()));
+		if (!babo.isdead())
+			baga.takeDamage(babo.rangedAttack(baga.getName()));
+		if (!babo.isdead())
+			baga.takeDamage(babo.meleeAttack(baga.getName()));
+		if (!babo.isdead())
+			baga.takeDamage(babo.vaulthunter_dot_exe(baga.getName()));
+	}
 	return (0);
 }

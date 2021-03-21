@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:23:15 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/21 15:48:28 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/21 19:26:30 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@ unsigned int	FragTrap::maxEnergyPoints = 100;
 unsigned int	FragTrap::meleeAttackDamage = 30;
 unsigned int	FragTrap::rangedAttackDamage = 20;
 unsigned int	FragTrap::armoreDamageReduction = 5;
+
 FragTrap::FragTrap(void)
 {
 	std::cout << this->name << "Let's get this party started!" << std::endl;
 	this->hitPoints = 100;
 	this->energyPoints = 100;
 	this->level = 1;
+	sleep(1);
 }
 
 FragTrap::FragTrap(std::string nm) : name(nm)
@@ -31,6 +33,7 @@ FragTrap::FragTrap(std::string nm) : name(nm)
 	this->hitPoints = 100;
 	this->energyPoints = 100;
 	this->level = 1;
+	sleep(1);
 }
 
 FragTrap::FragTrap(const FragTrap & src)
@@ -110,7 +113,7 @@ void	FragTrap::beRepaired(unsigned int amount)
 			this->hitPoints = this->maxHitPoints;
 		else
 			this->hitPoints += amount;
-			std::cout << this->name << " has been repaired by <" << amount << "HP>" << std::endl;
+			std::cout << "Can I just say... yeehaw! " << this->name << " has been repaired by <" << amount << "HP>" << std::endl;
 	}
 	std::cout << this->name << "=> Hit Points left:  " << this->hitPoints << std::endl;
 	std::cout << this->name << "=> Energy Points left:  " << this->energyPoints << "\n" << std::endl;
