@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:21:39 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/21 19:27:11 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/22 10:32:37 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ScavTrap::ScavTrap(void)
 	this->hitPoints = 100;
 	this->energyPoints = 50;
 	this->level = 1;
-	sleep(1);
+	usleep(10000);
 }
 
 ScavTrap::ScavTrap(std::string nm) : name(nm)
@@ -33,7 +33,7 @@ ScavTrap::ScavTrap(std::string nm) : name(nm)
 	this->hitPoints = 100;
 	this->energyPoints = 50;
 	this->level = 1;
-	sleep(1);
+	usleep(10000);
 }
 
 ScavTrap::ScavTrap(const ScavTrap & src)
@@ -43,7 +43,7 @@ ScavTrap::ScavTrap(const ScavTrap & src)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << this->name << ": Hehehehe, mwaa ha ha ha, MWAA HA HA HA!" << std::endl;
+	std::cout << this->name << ": Hehehehe, mwaa ha ha ha, MWAA HA HA HA!\n" << std::endl;
 }
 
 void	ScavTrap::setName(std::string nm)
@@ -123,11 +123,18 @@ void	ScavTrap::challengeNewcomer(std::string const & target)
 {
 	std::cout << "\33[36mYou versus me! Me versus you! Either way!\33[0m" << std::endl;
 	const char	*challenges[4] = {
-		"You wanna fight with me?! Put 'em up!.. Put 'em up?",
-		"A million baddies, and you wanna hit me? Aww!",
-		"Dance battle! Or, you know... regular battle.",
-		"Care to have a friendly duel?"
+		"🈲 I challenge you to Break the Poneglyph rock...\n",
+		"🧟‍♂️ I challenge you to Surpass the maze of zombies..\n",
+		"🕺 Dance battle! Or, you know... regular battle...\n",
+		"🚩 Care to have a friendly duel? Who gets the flag first wins...\n"
 	};
 	srand(clock());
-	std::cout << this->name << ": Heeeey " << target << " " << challenges[rand() % 4] << std::endl;
+	if (this->energyPoints >= 25)
+	{
+		this->energyPoints -= 25;
+		std::cout << this->name << ": " << target << ", " << challenges[rand() % 4] << std::endl;
+		return ;
+	}
+	std::cout << this->name << ":By gosh! my energy is ran out 😩\n" << std::endl;
 }
+

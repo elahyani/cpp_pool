@@ -6,13 +6,13 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:08:54 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/22 10:40:40 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/22 13:25:37 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
-#include <unistd.h>
+#include "ClapTrap.hpp"
 
 int	main()
 {
@@ -85,5 +85,16 @@ int	main()
 			luffy.takeDamage(babo.vaulthunter_dot_exe(luffy.getName()));
 	}
 
+	// FragTrap *p = new FragTrap("moha");
+	// ClapTrap v("hello");
+	// ClapTrap c("hello");
+
+	// v.takeDamage(c.rangedAttack(v.getName()));
+	// FragTrap v("moha");
+	// FragTrap c("ayoub");
+	// v.takeDamage(c.rangedAttack(v.getName()));
+	// ClapTrap *g = c;
+
+	// std::cout << c->getName() << std::endl;
 	return (0);
 }
