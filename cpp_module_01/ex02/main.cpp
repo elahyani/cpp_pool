@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 13:51:33 by hel               #+#    #+#             */
-/*   Updated: 2021/03/11 15:51:43 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/23 17:47:08 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,19 @@
 
 int     main()
 {
-    Zombie      *zombie = new Zombie;
-    Zombie      *zombie2 = new Zombie;
-    ZombieEvent *zombieEvent = new ZombieEvent;
+    Zombie      zombie;
+    Zombie      *zombie2;
+    ZombieEvent zombieEvent;
 
-    zombie->setZombieName("Fido");
-    zombie->setZombieType("Blue Walkers");
-    zombie->announce();
-    delete  zombie;
+    zombie.setZombieName("Fido");
+    zombie.setZombieType("Blue Walkers");
+    zombie.announce();
     std::cout << "--------------------------------------------" << std::endl;
-    zombieEvent->setZombieType("Runners");
-    zombie2 = zombieEvent->newZombie("Eddie");
+    zombieEvent.setZombieType("Runners");
+    zombie2 = zombieEvent.newZombie("Eddie");
     zombie2->announce();
     delete zombie2;
     std::cout << "--------------------------------------------" << std::endl;
-    zombieEvent->randomChump();
-    delete zombieEvent;
+    zombieEvent.randomChump();
     return (0);
 }

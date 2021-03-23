@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 12:30:31 by hel               #+#    #+#             */
-/*   Updated: 2021/03/11 15:51:56 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/23 17:47:22 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ std::string ZombieEvent::getRandomName(int len)
 
 void    ZombieEvent::randomChump()
 {
-    Zombie  *zombie = new Zombie;
+    Zombie  zombie;
     srand(time(0));
     std::string name;
 
     name = getRandomName(5);
-    zombie->setZombieName(name);
-    zombie->setZombieType("Ghouls");
-    zombie->announce();
+    zombie.setZombieName(name);
+    zombie.setZombieType("Ghouls");
+    zombie.announce();
 }
