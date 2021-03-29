@@ -6,13 +6,11 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:08:54 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/29 11:46:31 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/29 14:03:48 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
-#include "ClapTrap.hpp"
+#include "NinjaTrap.hpp"
 
 int	main()
 {
@@ -84,17 +82,17 @@ int	main()
 		if (!babo.isdead() && !asta.isdead())
 			luffy.takeDamage(babo.vaulthunter_dot_exe(luffy.getName()));
 	}
+	std::cout << "\n-------------------------------------------------------\n" << std::endl;
+	FragTrap	zoro("zoro");
+	ScavTrap	nezuko("nezuko");
+	ClapTrap	tanjiro("tanjiro");
+	NinjaTrap	leibe("leibe");
+	NinjaTrap	yami("yami");
 
-	// FragTrap *p = new FragTrap("moha");
-	// ClapTrap v("hello");
-	// ClapTrap c("hello");
-
-	// v.takeDamage(c.rangedAttack(v.getName()));
-	// FragTrap v("moha");
-	// FragTrap c("ayoub");
-	// v.takeDamage(c.rangedAttack(v.getName()));
-	// ClapTrap *g = c;
-
-	// std::cout << c->getName() << std::endl;
+	leibe.ninjaShoebox(zoro);
+	leibe.ninjaShoebox(nezuko);
+	leibe.ninjaShoebox(tanjiro);
+	leibe.ninjaShoebox(yami);
+	std::cout << "\n-------------------------------------------------------\n" << std::endl;
 	return (0);
 }
