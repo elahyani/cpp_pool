@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:23:15 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/21 15:48:28 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/30 11:06:06 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ unsigned int	FragTrap::maxEnergyPoints = 100;
 unsigned int	FragTrap::meleeAttackDamage = 30;
 unsigned int	FragTrap::rangedAttackDamage = 20;
 unsigned int	FragTrap::armoreDamageReduction = 5;
+
 FragTrap::FragTrap(void)
 {
 	std::cout << this->name << "Let's get this party started!" << std::endl;

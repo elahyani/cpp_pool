@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:23:15 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/29 11:48:03 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/30 12:46:57 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 FragTrap::FragTrap(void) : ClapTrap()
 {
-	std::cout << "[FragTrap] " << this->name << ": Let's get this party started!" << std::endl;
+	std::cout << this->name << ": Let's get this party started!\n" << std::endl;
 	this->hitPoints = 100;
 	this->maxHitPoints = 100;
 	this->energyPoints = 100;
@@ -23,12 +23,12 @@ FragTrap::FragTrap(void) : ClapTrap()
 	this->meleeAttackDamage = 30;
 	this->rangedAttackDamage = 20;
 	this->armoreDamageReduction = 5;
-	usleep(100000);
+	usleep(300000);
 }
 
 FragTrap::FragTrap(std::string nm) : ClapTrap(nm)
 {
-	std::cout << "[FragTrap] " << this->name << ": Let's get this party started!\n" << std::endl;
+	std::cout << this->name << ": Let's get this party started!\n" << std::endl;
 	this->hitPoints = 100;
 	this->maxHitPoints = 100;
 	this->energyPoints = 100;
@@ -37,7 +37,7 @@ FragTrap::FragTrap(std::string nm) : ClapTrap(nm)
 	this->meleeAttackDamage = 30;
 	this->rangedAttackDamage = 20;
 	this->armoreDamageReduction = 5;
-	usleep(100000);
+	usleep(300000);
 }
 
 FragTrap::FragTrap(const FragTrap & src) : ClapTrap(src)
@@ -46,7 +46,8 @@ FragTrap::FragTrap(const FragTrap & src) : ClapTrap(src)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "[FragTrap] " << this->name << ": Don't tell me that wasn't awesome!\n" << std::endl;
+	std::cout << this->name << ": Don't tell me that wasn't awesome!\n" << std::endl;
+	usleep(300000);
 }
 
 FragTrap&	FragTrap::operator=(const FragTrap& rhs)

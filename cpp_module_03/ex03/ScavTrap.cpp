@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:21:39 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/29 11:48:57 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/30 12:47:44 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
-	std::cout << "[ScavTrap] " << this->name << ": Glitching weirdness is a term of endearment, right?\n" << std::endl;
+	std::cout << this->name << ": Glitching weirdness is a term of endearment, right?\n" << std::endl;
 	this->hitPoints = 100;
 	this->maxHitPoints = 100;
 	this->energyPoints = 50;
@@ -23,12 +23,12 @@ ScavTrap::ScavTrap(void) : ClapTrap()
 	this->meleeAttackDamage = 20;
 	this->rangedAttackDamage = 15;
 	this->armoreDamageReduction = 3;
-	usleep(100000);
+	usleep(300000);
 }
 
 ScavTrap::ScavTrap(std::string nm) : ClapTrap(nm)
 {
-	std::cout << "[ScavTrap] " << this->name << ": Glitching weirdness is a term of endearment, right?\n" << std::endl;
+	std::cout << this->name << ": Glitching weirdness is a term of endearment, right?\n" << std::endl;
 	this->hitPoints = 100;
 	this->maxHitPoints = 100;
 	this->energyPoints = 50;
@@ -38,7 +38,7 @@ ScavTrap::ScavTrap(std::string nm) : ClapTrap(nm)
 	this->meleeAttackDamage = 20;
 	this->rangedAttackDamage = 15;
 	this->armoreDamageReduction = 3;
-	usleep(100000);
+	usleep(300000);
 }
 
 ScavTrap::ScavTrap(const ScavTrap & src) : ClapTrap(src)
@@ -47,7 +47,8 @@ ScavTrap::ScavTrap(const ScavTrap & src) : ClapTrap(src)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "[ScavTrap] " << this->name << ": Hehehehe, mwaa ha ha ha, MWAA HA HA HA!\n" << std::endl;
+	std::cout << this->name << ": Hehehehe, mwaa ha ha ha, MWAA HA HA HA!\n" << std::endl;
+	usleep(300000);
 }
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap& rhs)
@@ -74,4 +75,3 @@ void	ScavTrap::challengeNewcomer(std::string const & target)
 	}
 	std::cout << this->name << ":By gosh! my energy is ran out 😩\n" << std::endl;
 }
-

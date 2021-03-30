@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:23:15 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/22 10:32:30 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/30 12:39:38 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ FragTrap::FragTrap(void)
 	this->hitPoints = 100;
 	this->energyPoints = 100;
 	this->level = 1;
-	usleep(10000);
+	usleep(300000);
 }
 
 FragTrap::FragTrap(std::string nm) : name(nm)
@@ -33,7 +33,7 @@ FragTrap::FragTrap(std::string nm) : name(nm)
 	this->hitPoints = 100;
 	this->energyPoints = 100;
 	this->level = 1;
-	usleep(10000);
+	usleep(300000);
 }
 
 FragTrap::FragTrap(const FragTrap & src)
@@ -44,6 +44,7 @@ FragTrap::FragTrap(const FragTrap & src)
 FragTrap::~FragTrap()
 {
 	std::cout << this->name << ": Don't tell me that wasn't awesome!\n" << std::endl;
+	usleep(300000);
 }
 
 void	FragTrap::setName(std::string nm)

@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:09:21 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/21 14:56:49 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/30 11:18:05 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include <cstdlib>
+# include <unistd.h>
 
 class	FragTrap
 {

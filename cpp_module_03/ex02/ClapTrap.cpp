@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:23:15 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/22 13:24:42 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/30 12:17:23 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 ClapTrap::ClapTrap(void)
 {
-	std::cout << "[ClapTrap] " << this->name << ": Let's get this party started!" << std::endl;
-	usleep(100000);
+	std::cout << this->name << ": Unce! Unce! Unce! Unce! Ooo, oh check me out. Unce! Unce! Unce! Unce! Oh, come on get down.." << std::endl;
+	usleep(300000);
 }
 
 ClapTrap::ClapTrap(std::string nm) : name(nm)
 {
-	std::cout << "[ClapTrap] " << this->name << ": Let's get this party started!\n" << std::endl;
-	usleep(100000);
+	std::cout << this->name << ": Unce! Unce! Unce! Unce! Ooo, oh check me out. Unce! Unce! Unce! Unce! Oh, come on get down..\n" << std::endl;
+	usleep(300000);
 }
 
 ClapTrap::ClapTrap(const ClapTrap & src)
@@ -31,7 +31,8 @@ ClapTrap::ClapTrap(const ClapTrap & src)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "[ClapTrap] " << this->name << ": Don't tell me that wasn't awesome!\n" << std::endl;
+	std::cout << this->name << ": This time it'll be awesome, I promise!\n" << std::endl;
+	usleep(300000);
 }
 
 void	ClapTrap::setName(std::string nm)
@@ -47,7 +48,7 @@ std::string	ClapTrap::getName(void) const
 ClapTrap&	ClapTrap::operator=(const ClapTrap& rhs)
 {
 	this->name = rhs.getName();
-	this->hitPoints = rhs.hitPoints;
+	this->hitPoints = rhs.hitPoints; 
 	this->maxHitPoints = rhs.maxHitPoints;
 	this->energyPoints = rhs.energyPoints;
 	this->maxEnergyPoints = rhs.maxEnergyPoints;

@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:09:21 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/29 17:41:18 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/30 12:49:48 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <string>
-# include <unistd.h>
+
 # include "ClapTrap.hpp"
 
 class	FragTrap : virtual public ClapTrap

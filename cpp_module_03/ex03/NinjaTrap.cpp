@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 10:40:53 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/29 13:08:11 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/30 12:47:11 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 NinjaTrap::NinjaTrap() : ClapTrap()
 {
-	std::cout  << "[NinjaTrap] " << this->name << ": oh shit! here we go again\n" << std::endl;
+	std::cout << this->name << ": oh shit! here we go again\n" << std::endl;
 	this->hitPoints = 60;
 	this->maxHitPoints = 60;
 	this->energyPoints = 120;
@@ -23,12 +23,12 @@ NinjaTrap::NinjaTrap() : ClapTrap()
 	this->meleeAttackDamage = 60;
 	this->rangedAttackDamage = 5;
 	this->armoreDamageReduction = 0;
-	usleep(100000);
+	usleep(300000);
 }
 
 NinjaTrap::NinjaTrap(std::string nm) : ClapTrap(nm)
 {
-	std::cout << "[NinjaTrap] " << this->name << ": oh shit! here we go again..\n" << std::endl;
+	std::cout << this->name << ": oh shit! here we go again..\n" << std::endl;
 	this->hitPoints = 60;
 	this->maxHitPoints = 60;
 	this->energyPoints = 120;
@@ -37,7 +37,7 @@ NinjaTrap::NinjaTrap(std::string nm) : ClapTrap(nm)
 	this->meleeAttackDamage = 60;
 	this->rangedAttackDamage = 5;
 	this->armoreDamageReduction = 0;
-	usleep(100000);
+	usleep(300000);
 }
 
 NinjaTrap::NinjaTrap(const NinjaTrap& src) : ClapTrap(src)
@@ -46,7 +46,8 @@ NinjaTrap::NinjaTrap(const NinjaTrap& src) : ClapTrap(src)
 
 NinjaTrap::~NinjaTrap()
 {
-	std::cout << "[NinjaTrap] " << this->name << ": well, ladies and gentelmen, finish your drink and piss off...\n" << std::endl;
+	std::cout << this->name << ": well, ladies and gentelmen, finish your drink and piss off...\n" << std::endl;
+	usleep(300000);
 }
 
 NinjaTrap&	NinjaTrap::operator=(const NinjaTrap& rhs)
