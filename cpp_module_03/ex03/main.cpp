@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:08:54 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/30 12:44:48 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/02 09:35:07 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ int	main()
 		usleep(300000);
 		if (!babo.isdead() && !asta.isdead())
 			asta.challengeNewcomer(babo.getName());
+		usleep(300000);
+		if (!babo.isdead() && !asta.isdead())
+			asta.beRepaired(20);
+		usleep(300000);
 	}
 	std::cout << "\n-------------------------------------------------------\n" << std::endl;
 	leibe.ninjaShoebox(babo);

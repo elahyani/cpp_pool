@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:23:15 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/30 13:13:13 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/01 15:39:00 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,16 +89,16 @@ unsigned int	FragTrap::DemonSlayerSword(std::string const & target)
 {
 	std::cout << "🔪 Demon Slayer Sword <\33[1;32m" 
 	<< this->name << "\33[0m> attacks <\33[1;33m" << target << "\33[0m>, causing <\33[1;36m"
-	<< 20 << "\33[0m> points of damage!" << std::endl;
-	return 20;
+	<< 30 << "\33[0m> points of damage!" << std::endl;
+	return 30;
 }
 
 unsigned int	FragTrap::SantoryuOugiSanzenSekai(std::string const & target)
 {
 	std::cout << "🗡 🗡 🗡  Santoryu ougi sanzen sekai <\33[1;32m" 
 	<< this->name << "\33[0m> attacks <\33[1;33m" << target << "\33[0m>, causing <\33[1;36m"
-	<< 15 << "\33[0m> points of damage!" << std::endl;
-	return 15;
+	<< 50 << "\33[0m> points of damage!" << std::endl;
+	return 50;
 }
 
 unsigned int	FragTrap::SpritBomb(std::string const & target)
@@ -113,6 +113,6 @@ unsigned int	FragTrap::Rasengan(std::string const & target)
 {
 	std::cout << "🌐 Raaaaasennnngan <\33[1;32m" 
 	<< this->name << "\33[0m> attacks <\33[1;33m" << target << "\33[0m> causing <\33[1;36m"
-	<< 10 << "\33[0m> points of damage!" << std::endl;
-	return 10;
+	<< 13 << "\33[0m> points of damage!" << std::endl;
+	return 13;
 }

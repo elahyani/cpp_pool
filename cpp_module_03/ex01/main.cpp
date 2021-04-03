@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:08:54 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/30 11:26:06 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/01 17:57:10 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ int	main()
 		usleep(300000);
 		if (!babo.isdead() && !asta.isdead())
 			asta.challengeNewcomer(babo.getName());
+		usleep(300000);
+		if (!babo.isdead() && !asta.isdead())
+			babo.beRepaired(20);
+		usleep(300000);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:26:36 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/14 15:38:22 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/31 13:41:15 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Fixed::Fixed(float const f)
 	this->fixedPoint = roundf(f * (1 << this->fractionalBits));
 }
 
-Fixed::Fixed(const Fixed& src) : fixedPoint(src.fixedPoint)
+Fixed::Fixed(const Fixed& src)
 {
 	std::cout << "Copy Constructor called" << std::endl;
 	*this = src;

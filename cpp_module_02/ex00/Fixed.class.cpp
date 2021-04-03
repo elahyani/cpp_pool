@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 12:16:42 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/14 12:21:09 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/03/31 13:44:00 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Fixed::Fixed() : fixedPoint(0)
 	std::cout << "Default Constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed& src) : fixedPoint(src.fixedPoint)
+Fixed::Fixed(const Fixed& src)
 {
 	std::cout << "Copy Constructor called" << std::endl;
 	*this = src;

@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 15:41:31 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/30 13:14:08 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/02 09:51:40 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ SuperTrap::SuperTrap() : ClapTrap(), FragTrap(), NinjaTrap()
 	std::cout << this->name << ": It's time to phase you suckers out..\n" << std::endl;
 	this->hitPoints = 100;
 	this->maxHitPoints = 100;
-	this->energyPoints = 60;
-	this->maxEnergyPoints = 60;
+	this->energyPoints = this->NinjaTrap::energyPoints;
+	this->maxEnergyPoints = this->NinjaTrap::maxEnergyPoints;
 	this->level = 1;
-	this->meleeAttackDamage = 60;
+	this->meleeAttackDamage = this->NinjaTrap::meleeAttackDamage;
 	this->rangedAttackDamage = 20;
 	this->armoreDamageReduction = 5;
 	usleep(300000);
@@ -31,10 +31,10 @@ SuperTrap::SuperTrap(std::string nm) : ClapTrap(nm), FragTrap(nm), NinjaTrap(nm)
 	std::cout << this->name << ": It's time to phase you suckers out..\n" << std::endl;
 	this->hitPoints = 100;
 	this->maxHitPoints = 100;
-	this->energyPoints = 60;
-	this->maxEnergyPoints = 60;
+	this->energyPoints = this->NinjaTrap::energyPoints;
+	this->maxEnergyPoints = this->NinjaTrap::maxEnergyPoints;
 	this->level = 1;
-	this->meleeAttackDamage = 60;
+	this->meleeAttackDamage = this->NinjaTrap::meleeAttackDamage;
 	this->rangedAttackDamage = 20;
 	this->armoreDamageReduction = 5;
 	usleep(300000);

@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 16:21:39 by elahyani          #+#    #+#             */
-/*   Updated: 2021/03/30 12:39:46 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/03 13:12:08 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ unsigned int	ScavTrap::armoreDamageReduction = 3;
 
 ScavTrap::ScavTrap(void)
 {
+	this->name = "DEFAULT";
 	std::cout << this->name << ": Glitching weirdness is a term of endearment, right?\n" << std::endl;
 	this->hitPoints = 100;
 	this->energyPoints = 50;
@@ -96,14 +97,20 @@ unsigned int	ScavTrap::meleeAttack(std::string const & target)
 
 void	ScavTrap::takeDamage(unsigned int amount)
 {
-	if (this->hitPoints < amount)
-		this->hitPoints = 0;
+	if (amount <= this->armoreDamageReduction)
+		std::cout << this->name << ": HA HA HA HA HA, you're not good enough" << std::endl;
 	else
-		this->hitPoints = this->hitPoints - amount + this->armoreDamageReduction;
+	{
+		amount -= this->armoreDamageReduction;
+		if (this->hitPoints < amount)
+			this->hitPoints = 0;
+		else
+			this->hitPoints = this->hitPoints - amount;
+	}
 	std::cout << this->name << "=> Hit Points left: " << this->hitPoints << std::endl;
 	std::cout << this->name << "=> Energy Points left: " << this->energyPoints << "\n" << std::endl;
 	if (this->hitPoints == 0)
-		std::cout << "\33[31m" << this->name << ": Is that what people look like inside?\33[0m" << std::endl;
+		std::cout << "\33[31m" << this->name << ": Is that what people look like inside? 😵\33[0m" << std::endl;
 }
 
 void	ScavTrap::beRepaired(unsigned int amount)
@@ -114,7 +121,11 @@ void	ScavTrap::beRepaired(unsigned int amount)
 			this->hitPoints = this->maxHitPoints;
 		else
 			this->hitPoints += amount;
-			std::cout << "Sweet life juice! " << this->name << " has been repaired by <" << amount << "HP>" << std::endl;
+		if (this->energyPoints + amount > this->maxEnergyPoints)
+			this->energyPoints = this->maxEnergyPoints;
+		else
+			this->energyPoints += amount;
+		std::cout << "\033[0;31;2;1mSweet life juice! <" << this->name << "> has been repaired by <" << amount << "> HP & EP\033[0;31;2;1m" << std::endl;
 	}
 	std::cout << this->name << "=> Hit Points left: " << this->hitPoints << std::endl;
 	std::cout << this->name << "=> Energy Points left: " << this->energyPoints << "\n" << std::endl;
@@ -124,18 +135,20 @@ void	ScavTrap::challengeNewcomer(std::string const & target)
 {
 	std::cout << "\33[36mYou versus me! Me versus you! Either way!\33[0m" << std::endl;
 	const char	*challenges[4] = {
-		"🈲 to Break the Poneglyph rock...\n",
-		"🧟‍♂️ to Surpass the maze of zombies..\n",
-		"🕺 to a Dance battle! Or, you know... regular battle...\n",
-		"🚩 Care to have a friendly duel? Who gets the flag first wins...\n"
+		"🈲 to Break the Poneglyph rock...",
+		"🧟‍♂️ to Surpass the maze of zombies..",
+		"🕺 to a Dance battle! Or, you know... regular battle...",
+		"🚩 Care to have a friendly duel? Who gets the flag first wins..."
 	};
 	srand(clock());
 	if (this->energyPoints >= 25)
 	{
 		this->energyPoints -= 25;
-		std::cout << this->name << " challenge " << target << ", " << challenges[rand() % 4] << std::endl;
+		std::cout << this->name << " challenged " << target << ", " << challenges[rand() % 4] << std::endl;
+		std::cout << this->name << "=> Hit Points left:  " << this->hitPoints << std::endl;
+		std::cout << this->name << "=> Energy Points left:  " << this->energyPoints << "\n" << std::endl;
 		return ;
 	}
-	std::cout << this->name << ":By gosh! my energy is ran out 😩\n" << std::endl;
+	std::cout << this->name << ": By gosh! my energy is ran out 😩\n" << std::endl;
 }
 
