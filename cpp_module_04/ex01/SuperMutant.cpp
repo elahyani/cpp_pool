@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.cpp                                           :+:      :+:    :+:   */
+/*   SuperMutant.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/04 15:38:09 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/04 16:00:00 by elahyani         ###   ########.fr       */
+/*   Created: 2021/04/04 17:23:16 by elahyani          #+#    #+#             */
+/*   Updated: 2021/04/04 18:04:05 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Peon.hpp"
+#include "SuperMutant.hpp"
 
-Peon::Peon()
+SuperMutant::SuperMutant() : Enemy(170, "Super Mutant")
+{
+	std::cout << "Gaaah. Me want smash heads!" << std::endl;
+}
+
+SuperMutant::SuperMutant(const SuperMutant & src) : Enemy(src)
 {
 }
 
-Peon::Peon(std::string nm) : Victim(nm)
+SuperMutant&	SuperMutant::operator=(const SuperMutant & rhs)
 {
-	std::cout << "Zog Zog." << std::endl;
-}
-
-Peon::Peon(const Peon & src) : Victim(src)
-{
-}
-
-Peon&	Peon::operator=(const Peon & rhs)
-{
-	Victim::operator=(rhs);
+	Enemy::operator=(rhs);
 	return *this;
 }
 
-Peon::~Peon()
+SuperMutant::~SuperMutant()
 {
-	std::cout << "Bleuark..." << std::endl;
+	std::cout << "Aaargh..." << std::endl;
 }
 
-void	Peon::getPolymorphed() const
+void	SuperMutant::takeDamage(int amount)
 {
-	std::cout << this->getName() << " has been turned into a pink pony!" << std::endl;
+	amount -= 3;
+	Enemy::takeDamage(amount);
 }

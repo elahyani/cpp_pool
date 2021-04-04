@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.cpp                                           :+:      :+:    :+:   */
+/*   PowerFist.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/04 15:38:09 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/04 16:00:00 by elahyani         ###   ########.fr       */
+/*   Created: 2021/04/04 17:09:23 by elahyani          #+#    #+#             */
+/*   Updated: 2021/04/04 17:10:38 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Peon.hpp"
+#include "PowerFist.hpp"
 
-Peon::Peon()
+PowerFist::PowerFist() : AWeapon("Power Fist", 8, 50)
 {
 }
 
-Peon::Peon(std::string nm) : Victim(nm)
-{
-	std::cout << "Zog Zog." << std::endl;
-}
-
-Peon::Peon(const Peon & src) : Victim(src)
+PowerFist::PowerFist(const PowerFist & src) : AWeapon(src)
 {
 }
 
-Peon&	Peon::operator=(const Peon & rhs)
+PowerFist&	PowerFist::operator=(const PowerFist & rhs)
 {
-	Victim::operator=(rhs);
+	if(this != &rhs)
+		AWeapon::operator=(rhs);
 	return *this;
 }
 
-Peon::~Peon()
+PowerFist::~PowerFist()
 {
-	std::cout << "Bleuark..." << std::endl;
 }
 
-void	Peon::getPolymorphed() const
+void	PowerFist::attack() const
 {
-	std::cout << this->getName() << " has been turned into a pink pony!" << std::endl;
+	std::cout << "* pschhh... SBAM! *" << std::endl;
 }

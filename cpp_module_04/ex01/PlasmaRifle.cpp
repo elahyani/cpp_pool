@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.cpp                                           :+:      :+:    :+:   */
+/*   PlasmaRifle.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/04 15:38:09 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/04 16:00:00 by elahyani         ###   ########.fr       */
+/*   Created: 2021/04/04 16:54:18 by elahyani          #+#    #+#             */
+/*   Updated: 2021/04/04 17:10:24 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Peon.hpp"
+#include "PlasmaRifle.hpp"
 
-Peon::Peon()
+PlasmaRifle::PlasmaRifle() : AWeapon("Plasma Rifle", 5, 21)
 {
 }
 
-Peon::Peon(std::string nm) : Victim(nm)
-{
-	std::cout << "Zog Zog." << std::endl;
-}
-
-Peon::Peon(const Peon & src) : Victim(src)
+PlasmaRifle::PlasmaRifle(const PlasmaRifle & src) : AWeapon(src)
 {
 }
 
-Peon&	Peon::operator=(const Peon & rhs)
+PlasmaRifle&	PlasmaRifle::operator=(const PlasmaRifle & rhs)
 {
-	Victim::operator=(rhs);
+	if(this != &rhs)
+		AWeapon::operator=(rhs);
 	return *this;
 }
 
-Peon::~Peon()
+PlasmaRifle::~PlasmaRifle()
 {
-	std::cout << "Bleuark..." << std::endl;
 }
 
-void	Peon::getPolymorphed() const
+void	PlasmaRifle::attack() const
 {
-	std::cout << this->getName() << " has been turned into a pink pony!" << std::endl;
+	std::cout << "* piouuu piouuu piouuu *" << std::endl;
 }

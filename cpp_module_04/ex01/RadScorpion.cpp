@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.cpp                                           :+:      :+:    :+:   */
+/*   RadScorpion.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/04 15:38:09 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/04 16:00:00 by elahyani         ###   ########.fr       */
+/*   Created: 2021/04/04 17:31:13 by elahyani          #+#    #+#             */
+/*   Updated: 2021/04/04 17:32:41 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Peon.hpp"
+#include "RadScorpion.hpp"
 
-Peon::Peon()
+RadScorpion::RadScorpion() : Enemy(80, "RadScorpion")
+{
+	std::cout << "* click click click *" << std::endl;
+}
+
+RadScorpion::RadScorpion(const RadScorpion & src) : Enemy(src)
 {
 }
 
-Peon::Peon(std::string nm) : Victim(nm)
+RadScorpion&	RadScorpion::operator=(const RadScorpion & rhs)
 {
-	std::cout << "Zog Zog." << std::endl;
-}
-
-Peon::Peon(const Peon & src) : Victim(src)
-{
-}
-
-Peon&	Peon::operator=(const Peon & rhs)
-{
-	Victim::operator=(rhs);
+	Enemy::operator=(rhs);
 	return *this;
 }
 
-Peon::~Peon()
+RadScorpion::~RadScorpion()
 {
-	std::cout << "Bleuark..." << std::endl;
-}
-
-void	Peon::getPolymorphed() const
-{
-	std::cout << this->getName() << " has been turned into a pink pony!" << std::endl;
+	std::cout << "* SPROTCH *" << std::endl;
 }

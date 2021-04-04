@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   AWeapon.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/04 15:14:26 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/04 15:57:56 by elahyani         ###   ########.fr       */
+/*   Created: 2021/04/04 16:29:08 by elahyani          #+#    #+#             */
+/*   Updated: 2021/04/04 16:56:41 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef AWEAPON_HPP
+# define AWEAPON_HPP
 
 # include <iostream>
 # include <string>
 
-class Victim
+class AWeapon
 {
-
-private:
-	std::string name;
+protected:
+	std::string	_name;
+	int			_apcost;
+	int			_damage;
 
 public:
-	Victim();
-	Victim(std::string);
-	Victim(Victim const & src);
-	Victim&	operator=(Victim const & rhs);
-	~Victim();
-
-	void	setName(std::string);
-	std::string	getName() const;
-	void	introduce() const;
-	virtual void	getPolymorphed() const;
+	AWeapon();
+	AWeapon(std::string const & name, int apcost, int damage);
+	AWeapon(const AWeapon & src);
+	AWeapon&	operator=(const AWeapon & rhs);
+	virtual ~AWeapon();
+	std::string getName() const;
+	int getAPCost() const;
+	int getDamage() const;
+	virtual void attack() const = 0;
 };
-
-std::ostream&	operator<<(std::ostream& o, const Victim& v);
 
 #endif
