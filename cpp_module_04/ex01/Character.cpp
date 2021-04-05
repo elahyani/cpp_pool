@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 17:36:51 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/05 13:51:06 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/05 16:01:03 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,8 @@ Character&	Character::operator=(const Character & rhs)
 
 void	Character::recoverAP()
 {
-	if (this->_apcost + 10 >= 40)
-		return ;
-	this->_apcost += 10;
+	if (this->_apcost + 10 <= 40)
+		this->_apcost += 10;
 }
 
 void	Character::equip(AWeapon *weapon)
@@ -49,12 +48,18 @@ void	Character::equip(AWeapon *weapon)
 
 void	Character::attack(Enemy *enemy)
 {
-	std::cout << this->_name << " attacks " << enemy->getType() << " with a " << this->weapon->getName() << std::endl;
-	this->weapon->attack();
-	this->_apcost -= this->weapon->getAPCost();
-	enemy->takeDamage(this->weapon->getDamage());
-	if (enemy->getHP() == 0)
-		delete enemy;
+	if (enemy != NULL)
+	{
+		std::cout << this->_name << " attacks " << enemy->getType() << " with a " << this->weapon->getName() << std::endl;
+		this->weapon->attack();
+		this->_apcost -= this->weapon->getAPCost();
+		enemy->takeDamage(this->weapon->getDamage());
+		if (enemy->getHP() == 0)
+		{
+			delete enemy;
+			enemy = NULL;
+		}
+	}
 }
 
 std::string	const &	Character::getName() const
@@ -82,6 +87,6 @@ std::ostream&	operator<<(std::ostream& o, Character & c)
 	if (c.getWeapon())
 		o << c.getName() << " has " << c.getAPcost() << " AP and wields a " << c.getWeaponName() << std::endl;
 	else
-		o << c.getName() << " has " << c.getAPcost() << " AP and is unramed\n";
+		o << c.getName() << " has " << c.getAPcost() << " AP and is unarmed\n";
 	return o;
 }
