@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 16:29:08 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/04 16:56:41 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/05 12:41:43 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
 	AWeapon(const AWeapon & src);
 	AWeapon&	operator=(const AWeapon & rhs);
 	virtual ~AWeapon();
-	std::string getName() const;
+	std::string const & getName() const;
 	int getAPCost() const;
 	int getDamage() const;
 	virtual void attack() const = 0;

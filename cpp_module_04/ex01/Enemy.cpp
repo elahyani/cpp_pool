@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 17:14:30 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/04 17:20:51 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/05 13:28:23 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Enemy::~Enemy()
 {
 }
 
-std::string	const	Enemy::getType() const
+std::string	const &	Enemy::getType() const
 {
 	return this->_type;
 }
@@ -52,5 +52,10 @@ int		Enemy::getHP() const
 void	Enemy::takeDamage(int amount)
 {
 	if (amount > 0)
-		this->_hp -= amount;
+	{
+		if (this->_hp - amount < 0)
+			this->_hp = 0;
+		else
+			this->_hp -= amount;
+	}	
 }

@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 17:36:51 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/04 18:19:42 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/05 13:51:06 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 Character::Character()
 {
+	this->_apcost = 40;
 }
 
-Character::Character(std::string const & name)
+Character::Character(std::string const & name) : _name(name)
 {
+	this->_apcost = 40;
+	weapon = NULL;
 }
 
 Character::Character(const Character & src)
@@ -46,16 +49,15 @@ void	Character::equip(AWeapon *weapon)
 
 void	Character::attack(Enemy *enemy)
 {
-	if (this->weapon->getName().empty())
-		return ;
 	std::cout << this->_name << " attacks " << enemy->getType() << " with a " << this->weapon->getName() << std::endl;
 	this->weapon->attack();
+	this->_apcost -= this->weapon->getAPCost();
+	enemy->takeDamage(this->weapon->getDamage());
 	if (enemy->getHP() == 0)
 		delete enemy;
-	enemy->takeDamage(this->weapon->getDamage());
 }
 
-std::string	const	Character::getName() const
+std::string	const &	Character::getName() const
 {
 	return this->_name;
 }
@@ -70,10 +72,16 @@ int		Character::getAPcost() const
 	return this->_apcost;
 }
 
-std::ostream&	operator<<(std::ostream& o, Character & c){
-	if (c.getWeaponName().empty())
-		o << c.getName() << " has " << c.getAPcost() << " AP and is unramed\n";
+AWeapon *Character::getWeapon()
+{
+	return (this->weapon);
+}
+
+std::ostream&	operator<<(std::ostream& o, Character & c)
+{
+	if (c.getWeapon())
+		o << c.getName() << " has " << c.getAPcost() << " AP and wields a " << c.getWeaponName() << std::endl;
 	else
-		o << c.getName() << " has " << c.getAPcost() << "AP and wields a " << c.getWeaponName() << std::endl;
+		o << c.getName() << " has " << c.getAPcost() << " AP and is unramed\n";
 	return o;
 }
