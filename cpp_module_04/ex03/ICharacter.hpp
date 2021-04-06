@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/05 14:24:06 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/06 16:11:12 by elahyani         ###   ########.fr       */
+/*   Created: 2021/04/06 16:17:57 by elahyani          #+#    #+#             */
+/*   Updated: 2021/04/06 16:18:54 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "TacticalMarine.hpp"
-#include "AssaultTerminator.hpp"
-#include "Squad.hpp"
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 
-int main()
+class ICharacter
 {
-	ISpaceMarine* bob = new TacticalMarine;
-	ISpaceMarine* jim = new AssaultTerminator;
 
-	ISquad* vlc = new Squad;
-	vlc->push(bob);
-	vlc->push(jim); 
+public:
+	virtual ~ICharacter() {}
+	virtual std::string const & getName() const = 0;
+	virtual void equip(AMateria* m) = 0;
+	virtual void unequip(int idx) = 0;
+	virtual void use(int idx, ICharacter& target) = 0;
 
-	for (int i = 0; i < vlc->getCount(); ++i)
-	{
-		ISpaceMarine* cur = vlc->getUnit(i);
-		cur->battleCry();
-		cur->rangedAttack();
-		cur->meleeAttack();
-	}
-	return 0;
-}
+};
+
+#endif
