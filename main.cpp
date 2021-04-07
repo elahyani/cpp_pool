@@ -24,7 +24,19 @@ public:
 
 int main()
 {
-	Base	*myObj = new Derived();
-	delete myObj;
+	// Base	*myObj = new Derived();
+	// delete myObj;
+	char	**mTable = new char*[3];
+	// int		len = (int) sizeof(mTable)/sizeof(mTable[0]);
+	int		len = sizeof(mTable)/sizeof(int *);
+	// int		len = *(&mTable + 1) - mTable;
+	int		length = 0;
+
+	while (mTable[length])
+	{
+		length++;
+	}
+	std::cout << "length = " << length << std::endl;
+	std::cout << "len    = " << len << std::endl;
 	return (0);
 }

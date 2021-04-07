@@ -6,14 +6,16 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 16:17:57 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/06 16:18:54 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/07 17:22:53 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
-class ICharacter
+# include "AMateria.hpp"
+class AMateria;
+class	ICharacter
 {
 
 public:
