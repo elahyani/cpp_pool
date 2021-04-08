@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 16:44:17 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/07 16:53:59 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/08 12:15:43 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class	MateriaSource : public	IMateriaSource
 {
 
 private:
-	AMateria	*mat[3];
+	AMateria	*mat[4];
 	int			len;
 public:
 	MateriaSource();

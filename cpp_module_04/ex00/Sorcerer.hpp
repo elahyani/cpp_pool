@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 16:26:49 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/04 15:29:40 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/08 12:09:29 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ class Sorcerer
 
 private:
 	std::string	name;
-	std::string	title;	
+	std::string	title;
+	Sorcerer();
 
 public:
-	Sorcerer();
 	Sorcerer(std::string, std::string);
 	Sorcerer(const Sorcerer & src);
 	Sorcerer&	operator=(const Sorcerer & rhs);

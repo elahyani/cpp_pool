@@ -6,11 +6,17 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 17:40:43 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/04 16:02:37 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:20:42 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sorcerer.hpp"
+
+
+Sorcerer::Sorcerer()
+{
+	return ;
+}
 
 Sorcerer::Sorcerer(std::string nm, std::string ttl) : name(nm), title(ttl)
 {
@@ -29,8 +35,11 @@ Sorcerer::Sorcerer(const Sorcerer & src)
 
 Sorcerer&	Sorcerer::operator=(const Sorcerer & rhs)
 {
-	this->setName(rhs.getName());
-	this->setTitle(rhs.getTitle());
+	if (this != &rhs)
+	{	
+		this->setName(rhs.getName());
+		this->setTitle(rhs.getTitle());
+	}
 	return  *this;
 }
 

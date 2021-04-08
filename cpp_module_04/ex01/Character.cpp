@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 17:36:51 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/05 16:01:03 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/08 16:06:02 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 Character::Character()
 {
 	this->_apcost = 40;
+	this->isDead = 0;
 }
 
 Character::Character(std::string const & name) : _name(name)
 {
 	this->_apcost = 40;
+	this->isDead = 0;
 	weapon = NULL;
 }
 
@@ -35,6 +37,11 @@ Character&	Character::operator=(const Character & rhs)
 	return *this;
 }
 
+Character::~Character()
+{
+	return;
+}
+
 void	Character::recoverAP()
 {
 	if (this->_apcost + 10 <= 40)
@@ -48,14 +55,18 @@ void	Character::equip(AWeapon *weapon)
 
 void	Character::attack(Enemy *enemy)
 {
-	if (enemy != NULL)
+	if (enemy != NULL && this->_apcost >= 5)
 	{
 		std::cout << this->_name << " attacks " << enemy->getType() << " with a " << this->weapon->getName() << std::endl;
 		this->weapon->attack();
-		this->_apcost -= this->weapon->getAPCost();
+		if (this->_apcost - this->weapon->getAPCost() < 0)
+			this->_apcost = 0;
+		else
+			this->_apcost -= this->weapon->getAPCost();
 		enemy->takeDamage(this->weapon->getDamage());
-		if (enemy->getHP() == 0)
+		if (enemy->getHP() == 0 && this->isDead == 0)
 		{
+			this->isDead = 1;
 			delete enemy;
 			enemy = NULL;
 		}

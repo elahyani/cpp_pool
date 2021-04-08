@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 17:09:23 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/04 17:10:38 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/08 16:11:25 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 PowerFist::PowerFist() : AWeapon("Power Fist", 8, 50)
 {
+	return;
 }
 
 PowerFist::PowerFist(const PowerFist & src) : AWeapon(src)
@@ -29,6 +30,7 @@ PowerFist&	PowerFist::operator=(const PowerFist & rhs)
 
 PowerFist::~PowerFist()
 {
+	return;
 }
 
 void	PowerFist::attack() const

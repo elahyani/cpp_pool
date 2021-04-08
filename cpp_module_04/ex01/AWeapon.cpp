@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 16:34:07 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/05 13:36:28 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/08 14:58:10 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 AWeapon::AWeapon()
 {
+	return;
 }
 
 AWeapon::AWeapon(std::string const & name, int apcost, int damage) : _name(name), _apcost(apcost), _damage(damage)
 {
+	return;
 }
 
 AWeapon::AWeapon(const AWeapon & src)
@@ -35,6 +37,7 @@ AWeapon& AWeapon::operator=(const AWeapon & rhs)
 
 AWeapon::~AWeapon()
 {
+	return;
 }
 
 std::string const &	AWeapon::getName() const

@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 16:54:18 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/05 13:36:10 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/08 14:59:24 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 PlasmaRifle::PlasmaRifle() : AWeapon("Plasma Rifle", 5, 21)
 {
+	return;
 }
 
 PlasmaRifle::PlasmaRifle(const PlasmaRifle & src) : AWeapon(src)
@@ -29,6 +30,7 @@ PlasmaRifle&	PlasmaRifle::operator=(const PlasmaRifle & rhs)
 
 PlasmaRifle::~PlasmaRifle()
 {
+	return;
 }
 
 void	PlasmaRifle::attack() const

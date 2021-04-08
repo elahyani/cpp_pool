@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 15:38:09 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/04 16:00:00 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:25:07 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Peon::Peon()
 {
+	return ;
 }
 
 Peon::Peon(std::string nm) : Victim(nm)

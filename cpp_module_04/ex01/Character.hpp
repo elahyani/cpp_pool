@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 17:32:48 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/05 13:48:27 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/08 15:59:51 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Character
 private:
 	int			_apcost;
 	std::string	_name;
-	AWeapon	*weapon;
+	AWeapon		*weapon;
 
 public:
 	Character();
@@ -40,6 +40,7 @@ public:
 	std::string const getWeaponName() const;
 	int		getAPcost() const;
 	AWeapon *getWeapon();
+	bool	isDead;
 };
 
 std::ostream&	operator<<(std::ostream& o, Character & c);
