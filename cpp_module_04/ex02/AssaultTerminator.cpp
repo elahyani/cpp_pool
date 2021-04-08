@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 10:58:11 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/06 15:23:24 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/08 18:16:56 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ AssaultTerminator::~AssaultTerminator()
 
 ISpaceMarine*	AssaultTerminator::clone() const
 {
-	return this->iSpaceMarine;
+	return (new AssaultTerminator(*this));
 }
 
 void	AssaultTerminator::battleCry() const

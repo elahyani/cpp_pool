@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 10:46:02 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/06 15:23:12 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/08 18:17:25 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ TacticalMarine::~TacticalMarine()
 
 ISpaceMarine*	TacticalMarine::clone() const
 {
-	return this->iSpaceMarine;
+	return (new TacticalMarine(*this));
 }
 
 void	TacticalMarine::battleCry() const

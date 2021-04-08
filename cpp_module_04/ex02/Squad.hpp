@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 14:54:36 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/06 15:38:47 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/08 17:22:04 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ private:
 public:
 	Squad();
 	Squad(const Squad & src);
-	Squad&	operator=(const Squad & rhs);
+	virtual Squad&	operator=(const Squad & rhs);
 	~Squad();
 
 	int				getCount() const;

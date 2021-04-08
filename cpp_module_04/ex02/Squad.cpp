@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 10:17:49 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/06 15:56:54 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/08 18:38:56 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,28 +79,34 @@ int		Squad::getCount() const
 
 ISpaceMarine	*Squad::getUnit(int N) const
 {
-	if (N >= 0 || N < this->nbrUnit)
+	if (N >= 0 && N < this->nbrUnit)
 	{
 		t_spaceMarine	*space = this->spaceMarine;
 		while (N--)
 			space = space->next;
 		return space->iSpaceMarine;
 	}
+	else
+		std::cout << "Out of bounds index." << std::endl;
 	return NULL;
 }
 
 bool	Squad::isNotDuplicated(t_spaceMarine *spaceMarine, ISpaceMarine *newUnit)
 {
-	t_spaceMarine	*Marine;
-
-	Marine = spaceMarine;
+	t_spaceMarine	*marine;
+	// needs to be fixed:
+	//		- avoid adding identical units
+	marine = spaceMarine;
 	if (newUnit == NULL)
 		return false;
-	while (Marine)
+	while (marine)
 	{
-		if (Marine->iSpaceMarine == newUnit)
+		if (marine->iSpaceMarine == newUnit)
+		{
+			std::cout << "**********edentical" << std::endl;
 			return false;
-		Marine = Marine->next;
+		}
+		marine = marine->next;
 	}
 	return true;
 }
@@ -109,7 +115,7 @@ int	Squad::pushSquad(t_spaceMarine **Marine, ISpaceMarine *newUnit)
 {
 	*Marine = new t_spaceMarine;
 
-	(*Marine)->iSpaceMarine = newUnit;
+	(*Marine)->iSpaceMarine = newUnit->clone();
 	(*Marine)->next = NULL;
 	this->nbrUnit++;
 	return this->nbrUnit;
@@ -119,13 +125,17 @@ int		Squad::push(ISpaceMarine* newUnit)
 {
 	t_spaceMarine	*last = this->spaceMarine;
 
-	if (newUnit && isNotDuplicated(spaceMarine, newUnit))
-	{
-		if (this->spaceMarine == NULL)
-			return pushSquad(&this->spaceMarine, newUnit);
-		while (last->next != NULL)
-			last = last->next;
-		return pushSquad(&(last->next), newUnit);
+	if (newUnit)
+	{ // see the comments above
+		if (isNotDuplicated(spaceMarine, newUnit) == true)
+		{
+			std::cout << "am in" << std::endl;
+			if (this->spaceMarine == NULL)
+				return pushSquad(&this->spaceMarine, newUnit);
+			while (last->next != NULL)
+				last = last->next;
+			return pushSquad(&(last->next), newUnit);
+		}
 	}
 	return this->nbrUnit;
 }

@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 10:57:11 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/06 11:09:19 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/08 18:18:04 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 class AssaultTerminator : public ISpaceMarine
 {
 
-private:
-	ISpaceMarine	*iSpaceMarine;
 public:
 	AssaultTerminator();
 	AssaultTerminator(const AssaultTerminator & src);

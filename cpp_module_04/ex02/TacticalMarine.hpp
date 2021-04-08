@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 10:43:09 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/06 10:59:20 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/08 18:17:57 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 class TacticalMarine : public ISpaceMarine
 {
 
-private:
-	ISpaceMarine	*iSpaceMarine;
 public:
 	TacticalMarine();
 	TacticalMarine(const TacticalMarine & src);
