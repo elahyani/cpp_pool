@@ -1,13 +1,11 @@
 #include "Form.hpp"
 
-Form::Form() : 
-_name("Def"), _signed(false) ,_siGrade(1), _exGrade(150)
+Form::Form() : _name("Def"), _signed(false), _siGrade(1), _exGrade(150)
 {
     return;
 }
 
-Form::Form(std::string const & name, const int siGrade, const int exGrade) : 
-_name(name), _signed(false), _siGrade(siGrade), _exGrade(exGrade)
+Form::Form(std::string const &name, const int siGrade, const int exGrade) : _name(name), _signed(false), _siGrade(siGrade), _exGrade(exGrade)
 {
     if (_siGrade > 150 || _exGrade > 150)
         throw Form::GradeTooLowException();
@@ -15,17 +13,16 @@ _name(name), _signed(false), _siGrade(siGrade), _exGrade(exGrade)
         throw Form::GradeTooHighException();
 }
 
-Form::Form(const Form & src) : 
-_name(src.getName()), _signed(src.getSign()), _siGrade(src.getSiGrade()), _exGrade(src.getExGrade())
+Form::Form(const Form &src) : _name(src.getName()), _signed(src.getSign()), _siGrade(src.getSiGrade()), _exGrade(src.getExGrade())
 {
     *this = src;
 }
 
-Form&   Form::operator=(const Form & rhs)
+Form &Form::operator=(const Form &rhs)
 {
     if (this != &rhs)
     {
-        (std::string)this->_name = rhs.getName();
+        (std::string) this->_name = rhs.getName();
         this->_signed = rhs.getSign();
     }
     return *this;
@@ -36,27 +33,27 @@ Form::~Form()
     return;
 }
 
-std::string const & Form::getName() const
+std::string const &Form::getName() const
 {
     return this->_name;
 }
 
-int const   Form::getSiGrade() const
+int const Form::getSiGrade() const
 {
     return this->_siGrade;
 }
 
-int const   Form::getExGrade() const
+int const Form::getExGrade() const
 {
     return this->_exGrade;
 }
 
-bool    Form::getSign() const
+bool Form::getSign() const
 {
     return this->_signed;
 }
 
-void    Form::beSigned(Bureaucrat const & b)
+void Form::beSigned(Bureaucrat const &b)
 {
     try
     {
@@ -64,21 +61,21 @@ void    Form::beSigned(Bureaucrat const & b)
             throw Form::GradeTooLowException();
         this->_signed = true;
     }
-    catch (const std::exception& e)
+    catch (const std::exception &e)
     {
-        std::cout << "Exception: " << e.what() << '\n'; 
+        std::cout << "Exception: " << e.what() << '\n';
     }
 }
 
-std::ostream&   operator<<(std::ostream& o, Form& f)
+std::ostream &operator<<(std::ostream &o, Form &f)
 {
     if (f.getSign() == true)
-        o << "Form " << f.getName() << ", signed: true(" << f.getSign() 
-        << "), grade required to execute it: " << f.getExGrade() 
-        << ", grade required to sign it: " << f.getSiGrade();
+        o << "Form " << f.getName() << ", signed: true(" << f.getSign()
+          << "), grade required to execute it: " << f.getExGrade()
+          << ", grade required to sign it: " << f.getSiGrade();
     else
-        o << "Form " << f.getName() << ", signed: flase(" << f.getSign() 
-        << "), grade required to execute it: " << f.getExGrade() 
-        << ", grade required to sign it: " << f.getSiGrade();
+        o << "Form " << f.getName() << ", signed: flase(" << f.getSign()
+          << "), grade required to execute it: " << f.getExGrade()
+          << ", grade required to sign it: " << f.getSiGrade();
     return o;
 }

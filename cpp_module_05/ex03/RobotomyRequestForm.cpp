@@ -1,23 +1,20 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() :
-Form("Def", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm() : Form("Def", 72, 45)
 {
     return;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string const & target) :
-Form("robotomy request", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string const &target) : Form("robotomy request", 72, 45)
 {
-    return ;
+    return;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & src) :
-Form(src)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) : Form(src)
 {
 }
 
-RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm & rhs)
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &rhs)
 {
     Form::operator=(rhs);
     return *this;
@@ -28,7 +25,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
     return;
 }
 
-void    RobotomyRequestForm::takeAction(Bureaucrat const & b) const
+void RobotomyRequestForm::takeAction(Bureaucrat const &b) const
 {
     srand(clock());
     std::cout << "bzz zz bz zzzz trrrr rrr rr r rrrrrrr" << std::endl;
@@ -38,7 +35,7 @@ void    RobotomyRequestForm::takeAction(Bureaucrat const & b) const
         std::cout << "<" << b.getName() << "> has been failure to robotomized." << std::endl;
 }
 
-void    RobotomyRequestForm::execute(Bureaucrat const & executor) const
+void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 
     Form::execute(executor);

@@ -1,23 +1,20 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() :
-Form("Def", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm() : Form("Def", 145, 137)
 {
     return;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const & target) :
-Form("shrubbery creation", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : Form("shrubbery creation", 145, 137)
 {
-    return ;
+    return;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & src) :
-Form(src)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) : Form(src)
 {
 }
 
-ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm & rhs)
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs)
 {
     Form::operator=(rhs);
     return *this;
@@ -28,9 +25,9 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
     return;
 }
 
-void    ShrubberyCreationForm::takeAction(Bureaucrat const & b) const
+void ShrubberyCreationForm::takeAction(Bureaucrat const &b) const
 {
-    std::ofstream    os(b.getName() + "_shrubbery");
+    std::ofstream os(b.getName() + "_shrubbery");
 
     if (os.fail())
     {
@@ -38,7 +35,7 @@ void    ShrubberyCreationForm::takeAction(Bureaucrat const & b) const
         os.clear();
     }
 
-    os << "                                                        ." << std::endl; 
+    os << "                                                        ." << std::endl;
     os << "                                          .         ;" << std::endl;
     os << "             .              .              ;%     ;;" << std::endl;
     os << "               ,           ,                :;%  %;" << std::endl;
@@ -70,7 +67,7 @@ void    ShrubberyCreationForm::takeAction(Bureaucrat const & b) const
     os.close();
 }
 
-void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
     Form::execute(executor);
     this->takeAction(executor);

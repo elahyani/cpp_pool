@@ -1,10 +1,10 @@
 #include "Bureaucrat.hpp"
 
-int     main()
+int main()
 {
-	Bureaucrat	bure("kim", 10);
-	Bureaucrat	cBure(bure);
-	Bureaucrat	aBure = bure;
+	Bureaucrat bure("kim", 10);
+	Bureaucrat cBure(bure);
+	Bureaucrat aBure = bure;
 
 	std::cout << std::endl;
 	std::cout << "bureaucrat            : " << bure << std::endl;
@@ -12,7 +12,7 @@ int     main()
 	std::cout << "assignement bureaucrat: " << aBure << std::endl;
 	std::cout << std::endl;
 
-    try
+	try
 	{
 		Bureaucrat ba("hel", 10);
 		std::cout << ba << std::endl;
@@ -22,7 +22,7 @@ int     main()
 		std::cout << ba << std::endl;
 		std::cout << std::endl;
 	}
-	catch(const std::exception& e)
+	catch (const std::exception &e)
 	{
 		std::cerr << "Exception: " << e.what() << "\n\n";
 	}
@@ -35,7 +35,7 @@ int     main()
 		bb.incrementGrade();
 		std::cout << bb << std::endl;
 	}
-	catch(const std::exception& e)
+	catch (const std::exception &e)
 	{
 		std::cerr << "Exception: " << e.what() << "\n\n";
 	}
@@ -48,7 +48,7 @@ int     main()
 		bc.decrementGrade();
 		std::cout << bc << std::endl;
 	}
-	catch(const std::exception& e)
+	catch (const std::exception &e)
 	{
 		std::cerr << "Exception: " << e.what() << "\n\n";
 	}
@@ -58,7 +58,7 @@ int     main()
 		Bureaucrat bd("hel", 0);
 		std::cout << bd << std::endl;
 	}
-	catch(const std::exception& e)
+	catch (const std::exception &e)
 	{
 		std::cerr << "Exception: " << e.what() << '\n';
 	}
