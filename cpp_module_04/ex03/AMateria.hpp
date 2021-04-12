@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 16:15:04 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/07 17:23:51 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/12 17:37:55 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@
 class ICharacter;
 class	AMateria
 {
+private:
+	AMateria();
+
 protected:
 	unsigned int	_xp;
 	std::string		_type;
 
 public:
-	AMateria();
 	AMateria(std::string const & type);
 	AMateria(const AMateria & src);
 	AMateria&	operator=(const AMateria & rhs);

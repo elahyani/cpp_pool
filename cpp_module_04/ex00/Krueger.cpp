@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.cpp                                           :+:      :+:    :+:   */
+/*   Krueger.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/04 15:38:09 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/12 11:46:23 by elahyani         ###   ########.fr       */
+/*   Created: 2021/04/12 15:02:58 by elahyani          #+#    #+#             */
+/*   Updated: 2021/04/12 15:10:38 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Peon.hpp"
+#include "Krueger.hpp"
 
-Peon::Peon(std::string nm) : Victim(nm)
+Krueger::Krueger(std::string nm) : Victim(nm)
 {
-	std::cout << "Zog Zog." << std::endl;
+	std::cout << "Krug Krug." << std::endl;
 }
 
-Peon::Peon(const Peon & src) : Victim(src)
+Krueger::Krueger(const Krueger & src) : Victim(src)
 {
 }
 
-Peon&	Peon::operator=(const Peon & rhs)
+Krueger&	Krueger::operator=(const Krueger & rhs)
 {
 	if (this != &rhs)
 		Victim::operator=(rhs);
 	return *this;
 }
 
-Peon::~Peon()
+Krueger::~Krueger()
 {
-	std::cout << "Bleuark..." << std::endl;
+	std::cout << "Praaakh..." << std::endl;
 }
 
-void	Peon::getPolymorphed() const
+void	Krueger::getPolymorphed() const
 {
-	std::cout << this->getName() << " has been turned into a pink pony!" << std::endl;
+	std::cout << this->getName() << " has been turned into a biscuit!" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 10:17:49 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/08 18:38:56 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/12 17:18:01 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,29 @@ Squad::Squad() : nbrUnit(0), spaceMarine(NULL)
 {
 }
 
-Squad::Squad(const Squad & src)
+Squad::Squad(const Squad &src) : nbrUnit(0), spaceMarine(NULL)
 {
-	*this = src;
+	t_spaceMarine *tmp;
+	this->nbrUnit = src.nbrUnit;
+	tmp = src.spaceMarine;
+	while (tmp)
+	{
+		this->push(tmp->iSpaceMarine->clone());
+		tmp = tmp->next;
+	}
 }
 
-Squad&	Squad::operator=(const Squad & rhs)
+Squad &Squad::operator=(const Squad &rhs)
 {
 	if (this != &rhs)
 	{
-		t_spaceMarine	*tmp;
-
+		t_spaceMarine *tmp;
 		this->deleteAll();
 		this->nbrUnit = rhs.nbrUnit;
 		tmp = rhs.spaceMarine;
 		while (tmp)
 		{
-			this->push(tmp->iSpaceMarine);
+			this->push(tmp->iSpaceMarine->clone());
 			tmp = tmp->next;
 		}
 	}
@@ -44,44 +50,41 @@ Squad::~Squad()
 	this->deleteAll();
 }
 
-void	Squad::deleteAll()
+void Squad::deleteAll()
 {
-	t_spaceMarine	*tmp;
+	t_spaceMarine *tmp;
 
 	tmp = NULL;
-	if (spaceMarine)
+	while (spaceMarine)
 	{
-		while (spaceMarine)
-		{
-			tmp = spaceMarine->next;
-			delete spaceMarine->iSpaceMarine;
-			delete spaceMarine;
-			spaceMarine = tmp;
-		}
-		spaceMarine = NULL;
+		tmp = spaceMarine->next;
+		delete spaceMarine->iSpaceMarine;
+		delete spaceMarine;
+		spaceMarine = tmp;
 	}
+	spaceMarine = NULL;
 }
 
-int		Squad::getCount() const
+int Squad::getCount() const
 {
-	int				count;
-	t_spaceMarine	*tmp;
+	int count;
+	t_spaceMarine *tmp;
 
 	count = 0;
 	tmp = this->spaceMarine;
 	while (tmp)
 	{
 		count++;
-		tmp = tmp->next;		
+		tmp = tmp->next;
 	}
 	return count;
 }
 
-ISpaceMarine	*Squad::getUnit(int N) const
+ISpaceMarine *Squad::getUnit(int N) const
 {
 	if (N >= 0 && N < this->nbrUnit)
 	{
-		t_spaceMarine	*space = this->spaceMarine;
+		t_spaceMarine *space = this->spaceMarine;
 		while (N--)
 			space = space->next;
 		return space->iSpaceMarine;
@@ -91,51 +94,38 @@ ISpaceMarine	*Squad::getUnit(int N) const
 	return NULL;
 }
 
-bool	Squad::isNotDuplicated(t_spaceMarine *spaceMarine, ISpaceMarine *newUnit)
+bool Squad::isNotDuplicated(t_spaceMarine *spaceMarine, ISpaceMarine *newUnit)
 {
-	t_spaceMarine	*marine;
-	// needs to be fixed:
-	//		- avoid adding identical units
-	marine = spaceMarine;
+	t_spaceMarine *marine = spaceMarine;
+
 	if (newUnit == NULL)
 		return false;
 	while (marine)
 	{
 		if (marine->iSpaceMarine == newUnit)
-		{
-			std::cout << "**********edentical" << std::endl;
 			return false;
-		}
 		marine = marine->next;
 	}
 	return true;
 }
 
-int	Squad::pushSquad(t_spaceMarine **Marine, ISpaceMarine *newUnit)
+int Squad::push(ISpaceMarine *newUnit)
 {
-	*Marine = new t_spaceMarine;
-
-	(*Marine)->iSpaceMarine = newUnit->clone();
-	(*Marine)->next = NULL;
-	this->nbrUnit++;
-	return this->nbrUnit;
-}
-
-int		Squad::push(ISpaceMarine* newUnit)
-{
-	t_spaceMarine	*last = this->spaceMarine;
-
-	if (newUnit)
-	{ // see the comments above
-		if (isNotDuplicated(spaceMarine, newUnit) == true)
+	if (newUnit && isNotDuplicated(this->spaceMarine, newUnit) == true)
+	{
+		t_spaceMarine *last = new t_spaceMarine;
+		last->iSpaceMarine = newUnit;
+		last->next = NULL;
+		if (this->spaceMarine == NULL)
+			this->spaceMarine = last;
+		else
 		{
-			std::cout << "am in" << std::endl;
-			if (this->spaceMarine == NULL)
-				return pushSquad(&this->spaceMarine, newUnit);
-			while (last->next != NULL)
-				last = last->next;
-			return pushSquad(&(last->next), newUnit);
+			t_spaceMarine *curr = this->spaceMarine;
+			while (curr->next != NULL)
+				curr = curr->next;
+			curr->next = last;
 		}
+		return ++this->nbrUnit;
 	}
 	return this->nbrUnit;
 }

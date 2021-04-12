@@ -151,3 +151,5 @@ int	main () {
 	// cout << ppoly3->area() << '\n';
 	return 0;
 }
+
+// 04/00: add a enemy derived class

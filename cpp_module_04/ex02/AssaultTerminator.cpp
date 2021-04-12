@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 10:58:11 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/08 18:16:56 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/12 17:17:47 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ AssaultTerminator::AssaultTerminator()
 	std::cout << "* teleports from space *" << std::endl;
 }
 
-AssaultTerminator::AssaultTerminator(const AssaultTerminator & src)
+AssaultTerminator::AssaultTerminator(const AssaultTerminator &src)
 {
 	*this = src;
 }
 
-AssaultTerminator&	AssaultTerminator::operator=(const AssaultTerminator & rhs)
+AssaultTerminator &AssaultTerminator::operator=(const AssaultTerminator &rhs)
 {
 	(void)rhs;
 	return *this;
@@ -33,22 +33,22 @@ AssaultTerminator::~AssaultTerminator()
 	std::cout << "I'll be back..." << std::endl;
 }
 
-ISpaceMarine*	AssaultTerminator::clone() const
+ISpaceMarine *AssaultTerminator::clone() const
 {
 	return (new AssaultTerminator(*this));
 }
 
-void	AssaultTerminator::battleCry() const
+void AssaultTerminator::battleCry() const
 {
 	std::cout << "This code is unclean. PURIFY IT!" << std::endl;
 }
 
-void	AssaultTerminator::rangedAttack() const
+void AssaultTerminator::rangedAttack() const
 {
 	std::cout << "* does nothing *" << std::endl;
 }
 
-void	AssaultTerminator::meleeAttack() const
+void AssaultTerminator::meleeAttack() const
 {
-	std::cout << "* attacks with chainfists *" << std::endl;	
+	std::cout << "* attacks with chainfists *" << std::endl;
 }

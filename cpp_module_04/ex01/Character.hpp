@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 17:32:48 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/08 15:59:51 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/12 09:00:25 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ private:
 	int			_apcost;
 	std::string	_name;
 	AWeapon		*weapon;
+	Character();
 
 public:
-	Character();
 	Character(std::string const & name);
 	Character(const Character & src);
 	Character&	operator=(const Character & rhs);

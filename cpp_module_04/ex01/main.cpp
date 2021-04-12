@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 18:15:29 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/08 16:09:53 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/12 15:22:12 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		main()
 	std::cout << "Enemy type: " << e->getType() << " | "
 			  << "Enamy HP: " << e->getHP() << std::endl;
 	std::cout << std::endl;
-	
+
 	me->equip(pr);
 	std::cout << *me;
 	me->equip(pf);

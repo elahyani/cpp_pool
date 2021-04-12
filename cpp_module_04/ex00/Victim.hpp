@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 15:14:26 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/08 11:29:39 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/12 08:59:15 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class Victim
 
 private:
 	std::string name;
+	Victim();
 
 public:
-	Victim();
 	Victim(std::string);
 	Victim(Victim const & src);
 	Victim&	operator=(Victim const & rhs);

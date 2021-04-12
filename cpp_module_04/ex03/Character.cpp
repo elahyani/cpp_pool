@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 15:08:30 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/07 19:06:40 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/12 17:43:59 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,14 @@ Character::Character(std::string const & name) : _name(name), len(0)
 
 Character::Character(const Character & src)
 {
-	*this = src;
+	this->_name = src._name;
+	this->len = src.len;
+	int	i = 0;
+	while (this->materia[i])
+	{
+		this->materia[i] = src.materia[i];
+		i++;	
+	}
 }
 
 Character&	Character::operator=(const Character & rhs)
@@ -69,7 +76,6 @@ void	Character::equip(AMateria* m)
 {
 	if (len == 4)
 	{
-		std::cout << "tablo 3amer a khuya tal gheda o rje3" << std::endl;
 		std::cout << "Full inventory" << std::endl;
 		return;
 	}

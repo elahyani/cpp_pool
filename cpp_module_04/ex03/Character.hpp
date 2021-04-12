@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 17:51:06 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/07 17:23:18 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/12 17:22:10 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ private:
 	std::string	_name;
 	AMateria	*materia[3];
 	int			len;
+	Character();
 
 public:
-	Character(/* args */);
 	Character(std::string const & name);
 	Character(const Character & src);
 	Character&	operator=(const Character & rhs);

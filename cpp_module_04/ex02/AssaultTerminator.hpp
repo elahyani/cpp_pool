@@ -6,31 +6,30 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 10:57:11 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/08 18:18:04 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/12 17:17:50 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ASSAULTTERMINATOR_HPP
-# define ASSAULTTERMINATOR_HPP
+#define ASSAULTTERMINATOR_HPP
 
-# include <iostream>
-# include <string>
-# include "ISpaceMarine.hpp"
+#include <iostream>
+#include <string>
+#include "ISpaceMarine.hpp"
 
 class AssaultTerminator : public ISpaceMarine
 {
 
 public:
 	AssaultTerminator();
-	AssaultTerminator(const AssaultTerminator & src);
-	AssaultTerminator& operator=(const AssaultTerminator & rhs);
+	AssaultTerminator(const AssaultTerminator &src);
+	AssaultTerminator &operator=(const AssaultTerminator &rhs);
 	~AssaultTerminator();
 
-	ISpaceMarine* clone() const;
+	ISpaceMarine *clone() const;
 	void battleCry() const;
 	void rangedAttack() const;
 	void meleeAttack() const;
-
 };
 
 #endif
