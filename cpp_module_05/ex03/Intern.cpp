@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 12:11:02 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/13 12:11:03 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/14 15:24:03 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,12 @@ Intern::Intern(const Intern &src)
 
 Intern &Intern::operator=(const Intern &rhs)
 {
+    (void)rhs;
     return *this;
 }
 
 Intern::~Intern()
 {
-}
-
-Form *Intern::president(std::string const &target)
-{
-    return new PresidentialPardonForm(target);
-}
-Form *Intern::rorbotmy(std::string const &target)
-{
-    return new RobotomyRequestForm(target);
-}
-Form *Intern::shrubbery(std::string const &target)
-{
-    return new ShrubberyCreationForm(target);
 }
 
 Form *Intern::makeForm(std::string const &name, std::string const &target)

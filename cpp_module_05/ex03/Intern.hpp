@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 12:11:07 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/13 12:11:08 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/14 15:23:07 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,6 @@ public:
     ~Intern();
 
     Form *makeForm(std::string const &name, std::string const &target);
-    Form *president(std::string const &);
-    Form *rorbotmy(std::string const &);
-    Form *shrubbery(std::string const &);
 };
 
 #endif

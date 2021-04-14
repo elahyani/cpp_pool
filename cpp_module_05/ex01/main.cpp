@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 12:09:55 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/13 12:09:56 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/14 14:27:17 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int     main()
 		Bureaucrat	bure("kim", 10);
 		form.beSigned(bure);
 		bure.signForm(form);
+		std::cout << std::endl;
 		std::cout << form << std::endl;
 		std::cout << std::endl;
 	}

@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 12:10:38 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/13 12:10:39 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/14 14:53:47 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() : Form("Def", 145, 137)
     return;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : Form("Shrubbery creation", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : Form("Shrubbery creation", 145, 137), _target(target)
 {
     return;
 }
@@ -37,9 +37,9 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
     return;
 }
 
-void ShrubberyCreationForm::takeAction(Bureaucrat const &b) const
+void ShrubberyCreationForm::takeAction(std::string const &target) const
 {
-    std::ofstream os(b.getName() + "_shrubbery");
+    std::ofstream os(target + "_shrubbery");
 
     if (os.fail())
     {
@@ -82,5 +82,5 @@ void ShrubberyCreationForm::takeAction(Bureaucrat const &b) const
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
     Form::execute(executor);
-    this->takeAction(executor);
+    this->takeAction(this->_target);
 }

@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 12:10:42 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/13 12:10:43 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/14 15:07:08 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class ShrubberyCreationForm : public Form
 
 private:
     ShrubberyCreationForm();
+    std::string _target;
 
 public:
     ShrubberyCreationForm(std::string const &target);
@@ -28,8 +29,8 @@ public:
     ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs);
     virtual ~ShrubberyCreationForm();
 
-    void execute(Bureaucrat const &executor) const;
-    void takeAction(Bureaucrat const &b) const;
+    void execute(Bureaucrat const &) const;
+    void takeAction(std::string const &) const;
 };
 
 #endif

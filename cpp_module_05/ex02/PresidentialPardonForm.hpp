@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 12:10:27 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/13 12:10:28 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/14 15:15:47 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class PresidentialPardonForm : public Form
 {
 private:
+    std::string _target;
     PresidentialPardonForm();
 
 public:
@@ -26,8 +27,8 @@ public:
     PresidentialPardonForm &operator=(const PresidentialPardonForm &rhs);
     virtual ~PresidentialPardonForm();
 
-    void execute(Bureaucrat const &executor) const;
-    void takeAction(Bureaucrat const &) const;
+    void execute(Bureaucrat const &) const;
+    void takeAction(std::string const &) const;
 };
 
 #endif

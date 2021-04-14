@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 12:09:44 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/13 12:09:45 by elahyani         ###   ########.fr       */
+/*   Created: 2021/04/13 12:09:17 by elahyani          #+#    #+#             */
+/*   Updated: 2021/04/14 14:13:07 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Bureaucrat
 {
 
 private:
-	std::string _name;
+	std::string  const _name;
 	int _grade;
 	Bureaucrat();
 
@@ -35,30 +35,19 @@ public:
 
 	std::string const &getName() const;
 	int getGrade() const;
-
 	void incrementGrade();
 	void decrementGrade();
 	void signForm(Form const &f) const;
 
 	class GradeTooHighException : public std::exception
 	{
-	public:
-		GradeTooHighException(){};
-		~GradeTooHighException(){};
-		virtual const char *what() const throw()
-		{
-			return "Grade too high!";
-		}
+		public:
+			virtual const char *what() const throw();
 	};
 	class GradeTooLowException : public std::exception
 	{
-	public:
-		GradeTooLowException(){};
-		~GradeTooLowException(){};
-		virtual const char *what() const throw()
-		{
-			return "Grade too low!";
-		}
+		public:
+			virtual const char *what() const throw();
 	};
 };
 

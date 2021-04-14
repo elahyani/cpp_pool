@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 12:09:26 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/13 12:09:29 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/14 13:55:29 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main()
 	Bureaucrat bure("kim", 10);
 	Bureaucrat cBure(bure);
 	Bureaucrat aBure = bure;
-
+	
 	std::cout << std::endl;
 	std::cout << "bureaucrat            : " << bure << std::endl;
 	std::cout << "copy bureaucrat       : " << cBure << std::endl;
@@ -36,33 +36,33 @@ int main()
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << "Exception: " << e.what() << "\n\n";
+		std::cout << "Exception: " << e.what() << "\n\n";
 	}
 
 	try
 	{
 		Bureaucrat bb("bob", 1);
 		std::cout << bb << std::endl;
-		std::cout << "Increment: " << '\n';
+		std::cout << "Increment.." << '\n';
 		bb.incrementGrade();
 		std::cout << bb << std::endl;
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << "Exception: " << e.what() << "\n\n";
+		std::cout << "Exception: " << e.what() << "\n\n";
 	}
 
 	try
 	{
 		Bureaucrat bc("jim", 150);
 		std::cout << bc << std::endl;
-		std::cout << "Decrement: " << '\n';
+		std::cout << "Decrement.." << '\n';
 		bc.decrementGrade();
 		std::cout << bc << std::endl;
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << "Exception: " << e.what() << "\n\n";
+		std::cout << "Exception: " << e.what() << "\n\n";
 	}
 
 	try
@@ -72,7 +72,7 @@ int main()
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << "Exception: " << e.what() << '\n';
+		std::cout << "Exception: " << e.what() << '\n';
 	}
 	return 0;
 }

@@ -6,16 +6,11 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 12:09:48 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/13 12:09:49 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/14 14:21:13 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-
-Form::Form() : _name("Def"), _signed(false), _siGrade(1), _exGrade(150)
-{
-    return;
-}
 
 Form::Form(std::string const &name, const int siGrade, const int exGrade) : _name(name), _signed(false), _siGrade(siGrade), _exGrade(exGrade)
 {
@@ -33,10 +28,7 @@ Form::Form(const Form &src) : _name(src.getName()), _signed(src.getSign()), _siG
 Form &Form::operator=(const Form &rhs)
 {
     if (this != &rhs)
-    {
-        (std::string) this->_name = rhs.getName();
         this->_signed = rhs.getSign();
-    }
     return *this;
 }
 
@@ -45,17 +37,27 @@ Form::~Form()
     return;
 }
 
+const char *Form::GradeTooHighException::what() const throw()
+{
+    return "Grade too high!";
+}
+
+const char *Form::GradeTooLowException::what() const throw()
+{
+    return "Grade too low!";
+}
+
 std::string const &Form::getName() const
 {
     return this->_name;
 }
 
-int const Form::getSiGrade() const
+int Form::getSiGrade() const
 {
     return this->_siGrade;
 }
 
-int const Form::getExGrade() const
+int Form::getExGrade() const
 {
     return this->_exGrade;
 }

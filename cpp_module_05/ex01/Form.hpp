@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 12:09:51 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/13 12:09:52 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/14 14:18:20 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,31 +36,21 @@ public:
     ~Form();
 
     std::string const &getName() const;
-    int const getSiGrade() const;
-    int const getExGrade() const;
+    int getSiGrade() const;
+    int getExGrade() const;
     bool getSign() const;
 
     void beSigned(Bureaucrat const &b);
 
     class GradeTooHighException : public std::exception
     {
-    public:
-        GradeTooHighException() {}
-        ~GradeTooHighException() {}
-        virtual const char *what() const throw()
-        {
-            return "Grade too high!";
-        }
+        public:
+            virtual const char *what() const throw();
     };
     class GradeTooLowException : public std::exception
     {
-    public:
-        GradeTooLowException() {}
-        ~GradeTooLowException() {}
-        virtual const char *what() const throw()
-        {
-            return "Grade too low!";
-        }
+        public:
+            virtual const char *what() const throw();
     };
 };
 
