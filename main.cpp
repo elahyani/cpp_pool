@@ -69,7 +69,7 @@ std::string	Cat::Leg::getName() const
 	return this->_name;
 }
 
-int main()
+int main(int argc, char **argv)
 {
 	// Base	*myObj = new Derived();
 	// delete myObj;
@@ -85,10 +85,12 @@ int main()
 	// }
 	// std::cout << "length = " << length << std::endl;
 	// std::cout << "len    = " << len << std::endl;
-	Cat	cat("lolo katy");
-	Cat::Leg	leg("legoleg");
+	// Cat	cat("lolo katy");
+	// Cat::Leg	leg("legoleg");
 
-	std::cout << "Hi am a cat my name is " << cat.getName() << std::endl;
-	std::cout << "Hi am a Leg my name is " << leg.getName() << std::endl;
+	// std::cout << "Hi am a cat my name is " << cat.getName() << std::endl;
+	// std::cout << "Hi am a Leg my name is " << leg.getName() << std::endl;
+	double b = std::stod(argv[1]);
+	std::cout << b << std::endl;
 	return (0);
 }
