@@ -6,14 +6,13 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 12:10:40 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/16 16:43:44 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/17 14:44:17 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Converter.hpp"
 
-Converter::Converter(std::string toConv) : 
-_toConv(toConv), _nonDisp(0), _convertedVal(0.0), _nbPoint(0), _isDouble(true), f(0), _fract(""), _isChar(0)
+Converter::Converter(std::string toConv) : _toConv(toConv), _convertedVal(0.0), _nbPoint(0), f(0), _fract(""), _isChar(0)
 {
 	parseAttr(_toConv);
 	return;
@@ -23,43 +22,61 @@ Converter::~Converter()
 {
 }
 
+const char *Converter::NonValidArgumentException::what() const throw()
+{
+	return "Invalid argument";
+}
+
+const char *Converter::EmptyArgumentException::what() const throw()
+{
+	return "Empty argument";
+}
+
+bool Converter::isNumber(std::string attr)
+{
+	std::string notNum[8] = {"nan", "nanf", "inf", "+inf", "-inf", "inff", "-inff", "+inff"};
+	for (int i = 0; i < 8; i++)
+	{
+		if (notNum[i] == attr)
+			return false;
+	}
+	return true;
+}
+
 void Converter::parseAttr(std::string attr)
 {
 	int i = 0;
+	int len = attr.length();
 
-	if (attr.length() == 1)
-		_isChar = 1;
-	if (attr[0] == '+' || attr[0] == '-')
-		i++;
-	for (; i < attr.length(); i++)
+	if (isNumber(attr))
 	{
-		if (attr[i] == '.')
+		if (attr.length() == 1 && !isdigit(attr[0]))
+			_isChar = 1;
+		else if (attr.length() > 1)
 		{
-			this->_fract = attr.substr(i + 1, attr.length());
-			std::cout << "fract--> " << this->_fract << '\n';
-			this->_nbPoint++;
-		}
-		else if (attr[i] == 'f')
-			this->f++;
-		else if (!isdigit(attr[i]) && attr[i] != 'f' && attr[i] != 'e')
-		{
-			this->_isDouble = false;
-			break;
+			if (attr[len - 1] == 'f')
+				attr = attr.substr(0, len - 1);
+			if (attr[0] == '+' || attr[0] == '-')
+				i++;
+			for (; i < attr.length(); i++)
+			{
+				if (attr[i] == '.')
+				{
+					this->_fract = attr.substr(i + 1, attr.length());
+					this->_nbPoint++;
+				}
+				else if (!isdigit(attr[i]))
+					throw NonValidArgumentException();
+			}
+			if (this->_nbPoint > 1)
+				throw NonValidArgumentException();
 		}
 	}
-	if (this->_nbPoint > 1 || f > 1)
-		_isDouble = false;
-	if ((this->_nbPoint <= 1 && _isDouble))
-	{
-		this->_convertedVal = std::atof(attr.c_str());
-		if (!_fract.length())
-			std::cout << std::setprecision(1) << std::fixed;
-		else if (attr[attr.length() - 1] == 'f')
-			std::cout << std::setprecision(_fract.length() - 1) << std::fixed;
-		else
-			std::cout << std::setprecision(_fract.length()) << std::fixed;
-	}
-
+	this->_convertedVal = std::atof(attr.c_str());
+	if (!_fract.length())
+		std::cout << std::setprecision(1) << std::fixed;
+	else
+		std::cout << std::setprecision(_fract.length()) << std::fixed;
 }
 
 double Converter::getConvertedVal() const
@@ -69,38 +86,45 @@ double Converter::getConvertedVal() const
 
 void Converter::toChar()
 {
-	if (_isDouble || _isChar)
+	if (_isChar)
 	{
-		if (_isChar)
-			std::cout << "char: '" << _toConv << "'\n";
-		else if (_convertedVal > 32 && _convertedVal < 127)
-			std::cout << "char: '" << static_cast<char>(_convertedVal) << "'\n";
-		else if ((_convertedVal >= 0 && _convertedVal < 33) || _convertedVal == 127)
-			std::cout << "char: Non displayable\n";
-		else
-			std::cout << "char: impossible\n";
+		int a = static_cast<int>(_toConv[0]);
+		std::stringstream ss;
+
+		ss << a;
+		ss >> _toConv;
+		_convertedVal = atof(_toConv.c_str());
 	}
-	else
+	if (isnan(_convertedVal) || isinf(_convertedVal) || _convertedVal > std::numeric_limits<char>::max() || _convertedVal < std::numeric_limits<char>::min())
 		std::cout << "char: impossible\n";
+	else if (isprint(_convertedVal))
+		std::cout << "char: '" << static_cast<char>(_convertedVal) << "'\n";
+	else
+		std::cout << "char: Non displayable\n";
 }
 
 void Converter::toInt()
 {
-	if (_isDouble)
-		std::cout << "int: " << static_cast<int>(_convertedVal) << '\n';
-	else if (_isChar)
-		std::cout << "int: " << static_cast<int>(_toConv[0]) << '\n';
+	if (isnan(_convertedVal) || isinf(_convertedVal) || _convertedVal > std::numeric_limits<int>::max() || _convertedVal < std::numeric_limits<int>::min())
+		std::cout << "int: impossible" << std::endl;
 	else
-		std::cout << "int: impossible\n";
+		std::cout << "int: " << static_cast<int>(_convertedVal) << std::endl;
 }
 
 void Converter::toFloat()
 {
-	if (_isDouble)
+	if (isnan(_convertedVal))
+		std::cout << "float: nanf"
+				  << "\n";
+	else if (isinf(_convertedVal))
 	{
-		// _convertedVal = atof(_toConv.c_str());
-		std::cout << "float: " << _convertedVal << "f\n";
-
+		std::cout << "float: ";
+		if (_convertedVal < 0)
+			std::cout << "-inff"
+					  << "\n";
+		else
+			std::cout << "+inff"
+					  << "\n";
 	}
 	else
 		std::cout << "float: " << static_cast<float>(_convertedVal) << "f\n";
@@ -108,13 +132,19 @@ void Converter::toFloat()
 
 void Converter::toDouble()
 {
-	if (_isDouble)
+	if (isnan(_convertedVal))
+		std::cout << "double: nan"
+				  << "\n";
+	else if (isinf(_convertedVal))
 	{
-		std::cout << "double: " << _convertedVal << "\n";
+		std::cout << "double: ";
+		if (_convertedVal < 0)
+			std::cout << "-inf"
+					  << "\n";
+		else
+			std::cout << "+inf"
+					  << "\n";
 	}
 	else
-	{
-		// _convertedVal = atof(_toConv.c_str());
-		std::cout << "double: " << _convertedVal << "\n";	
-	}
+		std::cout << "double: " << static_cast<double>(_convertedVal) << "\n";
 }

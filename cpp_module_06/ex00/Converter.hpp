@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 12:10:50 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/16 16:31:07 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/17 14:25:43 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,22 @@
 # include <iostream>
 # include <string>
 # include <iomanip>
+# include <cmath>
+# include <sstream>
 
 class Converter
 {
 
 private:
 	std::string	_toConv;
-	int		_nonDisp;
-	double	_convertedVal;
-	int		_nbPoint;
-	bool	_isDouble;
+	double		_convertedVal;
+	int			_nbPoint;
 	std::string	_fract;
-	int		_isChar;
+	int			_isChar;
 	
 	int		f;
 	Converter();
+	bool	isNumber(std::string);
 
 public:
 	Converter(std::string);
@@ -42,6 +43,16 @@ public:
 	void	toInt();
 	void	toFloat();
 	void	toDouble();
+	class	NonValidArgumentException : public std::exception
+	{
+		public:
+			virtual const char * what() const throw();
+	};
+	class	EmptyArgumentException : public std::exception
+	{
+		public:
+			virtual const char * what() const throw();
+	};
 };
 
 
