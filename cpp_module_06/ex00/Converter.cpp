@@ -6,13 +6,13 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 12:10:40 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/17 14:44:17 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/19 13:58:55 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Converter.hpp"
 
-Converter::Converter(std::string toConv) : _toConv(toConv), _convertedVal(0.0), _nbPoint(0), f(0), _fract(""), _isChar(0)
+Converter::Converter(std::string toConv) : _toConv(toConv), _convertedVal(0.0), _nbPoint(0), _fract(""), _isChar(0)
 {
 	parseAttr(_toConv);
 	return;
@@ -58,7 +58,7 @@ void Converter::parseAttr(std::string attr)
 				attr = attr.substr(0, len - 1);
 			if (attr[0] == '+' || attr[0] == '-')
 				i++;
-			for (; i < attr.length(); i++)
+			for (; i < (int)attr.length(); i++)
 			{
 				if (attr[i] == '.')
 				{

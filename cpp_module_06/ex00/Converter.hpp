@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 12:10:50 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/17 14:25:43 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/19 13:58:39 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ private:
 	std::string	_fract;
 	int			_isChar;
 	
-	int		f;
 	Converter();
 	bool	isNumber(std::string);
 

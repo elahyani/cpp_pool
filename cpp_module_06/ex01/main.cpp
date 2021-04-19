@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 15:29:27 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/18 15:50:25 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/19 13:56:48 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void *serialize(void)
 	std::cout << "nbr  = " << data->nbr << std::endl;
 	std::cout << std::endl;
 
-	// std::cout << "size = " << sizeof(data->p1) + sizeof(data->p2) + sizeof(data->nbr) << std::endl;
+	// std::cout << "size = " << sizeof(*data->p1) + sizeof(*data->p2) + sizeof(data->nbr) << std::endl;
 	std::cout << "size = " << sizeof(*data) << std::endl;
 
 	return reinterpret_cast<void *>(data);
