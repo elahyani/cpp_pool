@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 13:16:31 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/24 17:12:15 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/24 17:14:17 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,6 @@ public:
 	Array(unsigned int n) : _n(n), _array(NULL)
 	{
 		this->_array = new T[_n];
-		// for (size_t i = 0; i < _n; i++)
-		// {
-		// 	_array[i] = 1;	
-		// }
 	}
 
 	Array(const Array<T> &src) : _n(0), _array(NULL)
