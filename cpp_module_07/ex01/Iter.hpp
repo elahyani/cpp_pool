@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 14:23:46 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/22 17:14:05 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/24 13:14:44 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,13 @@ void showElement(T const &elem)
 	std::cout << elem << std::endl;
 }
 
-template <typename T, typename Y>
-void iter(T const *x, Y const &y, void (*z)(T const &))
+template <typename T>
+void iter(T const *arr, unsigned int const &len, void (*f)(T const &))
 {
-	std::cout << "array addr     : " << x << std::endl;
-	std::cout << "array len      : " << y << std::endl;
-	std::cout << "array elements : " << std::endl;
-	for (int i = 0; i < y; i++)
-		z(x[i]);
+	if (!arr)
+		return;
+	for (int i = 0; (unsigned int)i < len; i++)
+		f(arr[i]);
 }
 
 #endif

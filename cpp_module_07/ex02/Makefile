@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/04/22 14:23:34 by elahyani          #+#    #+#              #
-#    Updated: 2021/04/24 13:14:47 by elahyani         ###   ########.fr        #
+#    Created: 2021/04/24 13:15:59 by elahyani          #+#    #+#              #
+#    Updated: 2021/04/24 13:16:05 by elahyani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = iter
+NAME = array
 
 FLAGS = -Wall -Wextra -Werror
 

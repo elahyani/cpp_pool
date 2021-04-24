@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 14:23:43 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/22 17:14:04 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/24 13:14:41 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,39 @@
 
 int main()
 {
+	int len = 5;
 	{
-		int intArr[4] = {1, 2, 3, 4};
-		int len = 4;
+		int intArr[5] = {1, 2, 3, 4, 5};
 
-		::iter<int>(intArr, len, showElement);
+		::iter(intArr, len, showElement);
 		std::cout << std::endl;
 	}
 
 	{
-		char chrArr[5] = {'a', 'b', 'c', 'd', 'e'};
-		int len = 5;
+		float floatArr[5] = {1.1f, 2.2f, 3.3f, 4.4f, 5.5f};
 
-		::iter<char, int>(chrArr, len, showElement);
+		::iter(floatArr, len, showElement);
 		std::cout << std::endl;
 	}
 
 	{
-		std::string strArr[6] = {"aaa", "bbb", "ccc", "ddd", "eee", "fff"};
-		int len = 6;
+		double doubleArr[5] = {1.10, 2.20, 3.30, 4.40, 5.50};
 
-		::iter<std::string, int>(strArr, len, showElement);
+		::iter(doubleArr, len, showElement);
+		std::cout << std::endl;
+	}
+
+	{
+		std::string strArr[5] = {"aaa", "bbb", "ccc", "ddd", "eee"};
+
+		::iter(strArr, len, showElement);
+		std::cout << std::endl;
+	}
+
+	{
+		std::string *empty;
+
+		::iter(empty, len, showElement);
 		std::cout << std::endl;
 	}
 
