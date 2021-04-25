@@ -6,11 +6,17 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 14:23:43 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/24 13:14:41 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/25 14:28:56 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Iter.hpp"
+
+template <typename T>
+void showElement(T const &elem)
+{
+	std::cout << elem << std::endl;
+}
 
 int main()
 {

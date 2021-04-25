@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 14:23:46 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/24 13:14:44 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/25 15:52:46 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,12 @@
 #include <string>
 
 template <typename T>
-void showElement(T const &elem)
-{
-	std::cout << elem << std::endl;
-}
-
-template <typename T>
 void iter(T const *arr, unsigned int const &len, void (*f)(T const &))
 {
 	if (!arr)
 		return;
 	for (int i = 0; (unsigned int)i < len; i++)
-		f(arr[i]);
+		(*f)(arr[i]);
 }
 
 #endif
