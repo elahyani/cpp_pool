@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hel <hel@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 16:38:47 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/26 16:42:21 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/26 23:21:18 by hel              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,35 @@
 
 #include <iostream>
 #include <algorithm>
+#include <list>
 
 class Span
 {
 
 private:
-	unsigned int _N;
+	unsigned int _len;
+	std::list<int> lst;
+	Span();
 
 public:
-	Span();
+	class ListOfNumbersFullException : public std::exception
+	{
+	public:
+		const char *what() const throw();
+	};
+	class LessElementThenRequiredException : public std::exception
+	{
+	public:
+		const char *what() const throw();
+	};
 	Span(unsigned int);
-	Span(const Span & src);
-	Span&	operator=(const Span &rhs);
+	Span(const Span &src);
+	Span &operator=(const Span &rhs);
 	~Span();
 
-	void	addnumber(int nbr);
-	void	shortestSpan();
-	void	longestestSpan();
-
+	void addNumber(int nbr);
+	int shortestSpan() const;
+	int longestSpan() const;
 };
 
 #endif
