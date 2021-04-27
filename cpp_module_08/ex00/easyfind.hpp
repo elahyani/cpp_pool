@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 14:36:17 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/26 16:38:37 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/27 15:24:11 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #define EASYFIND_HPP
 
 #include <iostream>
-#include <map>
 #include <algorithm>
+#include <map>
 
 class ValueNotFoundException : public std::exception
 {
@@ -35,7 +35,35 @@ typename T::iterator easyfind(T &arr, int const &toFind)
 
 	if (res == ite)
 		throw ValueNotFoundException();
-	return (res);
+	return res;
+}
+
+template <typename K, typename V>
+typename std::map<K, V>::iterator easyfind(std::map<K, V> &arr, int const &toFind)
+{
+	typename std::map<K, V>::iterator it = arr.begin();
+	typename std::map<K, V>::iterator ite = arr.end();
+
+	for (; it != ite; it++)
+	{
+		if (it->second == toFind)
+			return it;
+	}
+	throw ValueNotFoundException();
+}
+
+template <typename K, typename V>
+typename std::multimap<K, V>::iterator easyfind(std::multimap<K, V> &arr, int const &toFind)
+{
+	typename std::multimap<K, V>::iterator it = arr.begin();
+	typename std::multimap<K, V>::iterator ite = arr.end();
+
+	for (; it != ite; it++)
+	{
+		if (it->second == toFind)
+			return it;
+	}
+	throw ValueNotFoundException();
 }
 
 #endif

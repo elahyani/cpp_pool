@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hel <hel@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 16:38:47 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/26 23:48:59 by hel              ###   ########.fr       */
+/*   Updated: 2021/04/27 16:26:02 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,24 +56,37 @@ void Span::addNumber(int nbr)
     lst.push_back(nbr);
 }
 
+void Span::addRange(std::vector<int>::iterator it, std::vector<int>::iterator ite)
+{
+    for (; it != ite; ++ it)
+        this->lst.push_back(*it);
+}
+
 int Span::shortestSpan(void) const
 {
     if (lst.size() <= 1)
         throw Span::LessElementThenRequiredException();
-    std::list<int> tmp = this->lst;
-    std::list<int>::iterator it = tmp.begin();
-    std::list<int>::iterator it2 = it++;
-    std::list<int>::iterator ite = tmp.end();
-    
-    int min;
+    std::vector<int> tmp = this->lst;
+    std::vector<int>::iterator it = tmp.begin();
+    std::vector<int>::iterator it2 = it + 1;
+    std::vector<int>::iterator ite = tmp.end();
+
+    int min = std::numeric_limits<int>::max();
     int sub = 0;
 
-    for (; it != ite; it++)
+    for (; it2 != ite; ++it2)
     {
-        min = *it - *it2;
-        if (sub < min)
-            
+        it = tmp.begin();
+        for (; it != ite; ++it)
+        {
+            if (*it == *it2)
+                continue;
+            sub = abs(*it - *it2);
+            if (sub < min)
+                min = sub;
+        }
     }
+    return min;
 }
 
 int Span::longestSpan(void) const
