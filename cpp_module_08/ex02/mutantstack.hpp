@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mutantstack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hel <hel@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 14:36:17 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/27 23:36:41 by hel              ###   ########.fr       */
+/*   Updated: 2021/04/28 15:21:01 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,5 @@ public:
     reverse_iterator rend();
     const_reverse_iterator rend() const;
 };
-
 
 #endif

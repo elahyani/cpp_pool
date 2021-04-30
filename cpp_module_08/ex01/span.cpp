@@ -6,7 +6,7 @@
 /*   By: elahyani <elahyani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 16:38:47 by elahyani          #+#    #+#             */
-/*   Updated: 2021/04/27 16:26:02 by elahyani         ###   ########.fr       */
+/*   Updated: 2021/04/28 15:19:03 by elahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void Span::addNumber(int nbr)
 
 void Span::addRange(std::vector<int>::iterator it, std::vector<int>::iterator ite)
 {
-    for (; it != ite; ++ it)
+    for (; it != ite; ++it)
         this->lst.push_back(*it);
 }
 
@@ -67,21 +67,17 @@ int Span::shortestSpan(void) const
     if (lst.size() <= 1)
         throw Span::LessElementThenRequiredException();
     std::vector<int> tmp = this->lst;
-    std::vector<int>::iterator it = tmp.begin();
-    std::vector<int>::iterator it2 = it + 1;
-    std::vector<int>::iterator ite = tmp.end();
 
     int min = std::numeric_limits<int>::max();
     int sub = 0;
 
-    for (; it2 != ite; ++it2)
+    for (size_t i = 0; i < tmp.size(); i++)
     {
-        it = tmp.begin();
-        for (; it != ite; ++it)
+        for (size_t j = 0; j < tmp.size(); j++)
         {
-            if (*it == *it2)
+            if (tmp[j] == tmp[i])
                 continue;
-            sub = abs(*it - *it2);
+            sub = abs(tmp[j] - tmp[i]);
             if (sub < min)
                 min = sub;
         }
